@@ -1,0 +1,9 @@
+---
+title: Limitations and future works
+---
+
+1.  To analyse the extract from rat BAT for more specificity of substrates to distinguish the type of SSAO present. This can be achieved by comparing the reaction rates by using different substrates such as tyramine and benzylamine along with known inhibitors of other classes of deamination enzymes such as the monoamine oxidases (MAO - A and MAO - B).
+2.  Reanalyse the inhibition properties of simvastatin and caffeine with additional controls such as inhibitors such as the MDL72794A, PXS-4728A, methylhydrazine and semi carbazide. This could potentially increase the reliability of the inhibition kinetic results. Optimisation of inhibitor concentrations to reevaluate the Ki for simvastatin and caffeine.
+3.  Conduct a larger number of independent experiments to enhance the confidence interval and reduce error.
+4.  No subsequent assays were performed to verify complete elimination of fats by any of the methods used.
+5.  The extracts were stored at -20℃ instead of -80℃ (standard practice), which could have affected the stability of the enzymes present in the extracts leading to a reduced activity.

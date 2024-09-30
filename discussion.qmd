@@ -1,0 +1,75 @@
+---
+title: "Discussion"
+bibliography: references.bib
+code-fold: true
+warning: false
+code-overflow: wrap
+---
+
+SSAO has been studied in various cells and tissue groups that include smooth muscle cells, intestinal tissue, heart, lungs, white adipose tissue, brown adipose tissue, kidney, retina and placenta in models such as mice, rats, and rabbits [@Abella2003; @BARRAND1984; @Barrant1984; @Iglesias-Osma2004; @Li2019; @Manasieva2022; @Manasieva2023; @Wang2018]. SSAO has been detected in various tissue types in the human body as it is widely distributed in the form of serum SSAO/VAP-1 or membrane bound SSAO [@Dunkel2008].
+
+Membrane bound SSAO are found in adipose tissues, and vascular smooth muscle endothelial cells in rats, mice and humans. Brown adipose tissues were chosen to be the source of SSAO for this project to support effective use of tissues extracted from rats. A major challenge in extracting proteins and enzymes from adipose tissues is the higher concentration of lipids. Hence methods that propose to remove the fat from adipose tissues were identified and modified to fit the objectives of the experiments. The key steps used to successfully extract SSAO were, defatting the tissues with ethanol and dissolving the proteins in PBS with a pH of 8.0.
+
+Method A involved rehydrating the tissues using a freeze-dryer. Dehydrating prior to defatting the tissues were ideal as the water present in the tissues is miscible with ethanol, this can lead to loss of proteins while defatting the tissues.
+
+BCA and Bradford results for protein concentrations obtained by each method were compared to identify a suitable method with highest quantity of proteins. Experiment 1 of method B produced a 6.5 mg protein/ml by BCA assay. Protein concentration estimated by BCA was considered for downstream calculations as BCA is relatively more sensitive than Bradford [@Noble2009]. An advantage with BCA is that it possesses a higher tolerance for interfering species [@Noble2009].
+
+Method A was not repeated due to freeze dryer unavailability for dehydration. Hence only one independent experiment was performed by method A. Method A also produced a more efficient fat removal with 57.3% loss in weight owing to fat and water. Method B and C were not dehydrated before defatting, which is the potential cause for a lower fat loss percentage with 38.7% and 28.7% respectively. PBS with pH 8.0 was used to dissolve the proteins as SSAO is highly stable at an optimum pH of 8.0 and the water in the buffer dissolves the proteins present in the tissue [@Stevanato2011]. While the samples were treated with PBS, a lower temperature was maintained to prevent loss of protein activity.  Method C involved using a tissue homogeniser, which is prone to generate heat when grinding the tissue. Hence, the homogenisation setup was modified to hold the tissues in an ice bath while homogenising at lower speeds. The tissues were homogenised with PBS instead of a lysis buffer like RIPA to keep the buffer uniform across all methods. The RIPA buffer contains higher concentrations of surfactants which can potentially hinder assays such as Bradford [@Noble2009]. The average estimated protein concentration of the extract obtained from method C was 5.43 mg/ml and 5.27 mg/ml by Bradford and BCA assays respectively. The extract obtained by method C had no significant SSAO activity with 0.016554 µmol H~2~O~2~ /mg protein. In contrast, extracts obtained in experiment 1 by methods A and B produced 2.018 and 1.641 µmol H~2~O~2~/mg protein SSAO levels respectively. Method B was chosen to perform further enzyme kinetic experiments. The SSAO activities measured by Amplex ^®^ red are corrected to per mg protein levels calculated from BCA. After the preliminary results from experiment 1, two more independent experiments were performed by method B and method C. The protein concentration estimates by Bradford and BCA assays were closer to results from experiment 1. This was also the case for SSAO level measurements in extracts from methods B and C. Since extracts obtained by method C did not have viable SSAO activity, the extract obtained from method B was used for further analysis. In comparing the quantity of proteins extracted by other methods (Bioprotocol, CST, and RELi) with method A, method B and method C, the protocols from the literature show significantly higher quantities than the methods used in this project [@fig-protein_extraction_comparision]. The protocols from the literature use Mice BAT for extracting proteins. Hence to provide a fair comparison in protocols, samples from the same animal needs to be used.
+
+```{r}
+#| label: fig-protein_extraction_comparision
+#| fig-cap: Comparison of protein extracted by different methods in literature with methods used in this study. The protein concentration measured by BCA is plotted in mg/ml/mg BAT/ml buffer used (An & Scherer, 2020; Diaz Marin et al., 2019).
+library(tidyverse)
+
+comp_table <- tibble(Replicate = fct(c("1", "2", "3", "4")),
+       Bioprotocol = c(0.04115, 0.0431, 0.0374, 0.04),
+       CST = c(0.04892, 0.08024, 0.068, NA),
+       RELi = c(0.054944, 0.037152, 0.034784, NA),
+       Method_A = c(0.004167, NA, NA, NA),
+       Method_B = c(0.006743, 0.006328, 0.006432, NA),
+       Method_C = c(0.005268, 0.004878, 0.005756, NA)
+       )
+
+comp_table |> 
+  pivot_longer(
+    cols = !Replicate,
+    names_to = "Protocol",
+    values_to = "Protein_Estimate"
+  ) |> group_by(Protocol) |> summarise(mean = mean(Protein_Estimate, na.rm = TRUE)) |> 
+  ggplot(aes(x = fct_reorder(Protocol, desc(mean)), 
+             y = mean, fill = Protocol))+
+  geom_bar(stat = "identity", 
+           na.rm = FALSE, 
+           orientation = "x",
+           show.legend = FALSE)+
+    geom_text(aes(label = round(mean, 4)),
+    vjust = -0.5,
+    position = position_dodge(width = 0.9),
+    size = 3)+
+  labs(
+    x = NULL,
+    y = "Average Protein Conc. \n (mg/ml/mg BAT/ml Buffer)"
+  )+
+  theme_classic()
+```
+
+```{r}
+#| label: tbl-protein_comparision
+#| tbl-cap: A comparision of the amount of protein (mg/ml/mg BAT/ml) extracted from BAT by different methods in the literature and the methods used in this project
+#| tbl-cap-location: bottom
+library(knitr)
+kable(comp_table)
+
+```
+
+Since there are no published methods for extracting SSAO from brown adipose tissues in rats, the results of this study cannot be compared to estimate correlations.
+
+Comparative analysis using parametric or non-parametric tests was not performed due to the limited number of experiments. Performing statistical tests with such a small sample size would likely increase the margin of error and reduce the confidence in the results. Therefore, the findings were only tabulated and plotted to clearly present the outcomes obtained in this study.
+
+**SSAO Kinetics:**
+
+The Km values for benzylamine as a substrate for SSAO extracted from various species have been reported in the literature [@Yraola2007]. Since this study uses rats - *Rattus Norvegicus* as the source of SSAO, the results obtained are compared with Km values estimated from same species of sample source. A study by Yraola et al has reported a Km value of 0.0127 mM for benzylamine as a substrate for SSAO obtained from rats [@Yraola2007]. This correlates with the **Km value of 0.03193 mM** obtained from this study for benzylamine as a substrate of SSAO obtained from rat brown adipose tissue [@Yraola2007]. Moreover, the same brown adipose tissue was used by both the studies to extract the SSAO enzyme.
+
+Ki values for Caffeine or Simvastatin have not been reported on brown adipose tissue SSAO obtained from *Rattus Norvegicus.* This study is the first to report the Ki values from caffeine and simvastatin on SSAO obtained from rats. However, a study by Sun P et al., has reported that simvastatin has reduced the release of membrane bound SSAO into circulation and thus preventing leukocyte adhesion and OGD mediated increase in vascular permeability [@Sun2018]. This study by Sun et al., measures the levels of SSAO by western blotting and does not provide a Ki value for simvastatin. A study by Che et al., reported that administration of caffeine to male Wistar rats caused a reduction in SSAO quantities due to accumulation of caffeine [@Che2012]. But no Ki values have been reported in the literature. **The Ki values obtained from this project are 2.145 and 6.768 mM for simvastatin and caffeine respectively.** The Ki values obtained are outside the inhibitor concentration range used to calculate them, indicating a need to repeat the inhibition experiments with updated concentrations that reflect the current Ki values. The fact that these Ki values fall within the millimolar range suggests that both compounds are not potent inhibitors of SSAO.
+
+However, it's important to note that these results are based on a single independent experiment. Additionally, this study did not use inhibitors with known Ki values as controls, which limits the ability to accurately compare the inhibition effects of different compounds. Future research should focus on addressing these limitations to improve accuracy and reduce errors, leading to more reliable results.

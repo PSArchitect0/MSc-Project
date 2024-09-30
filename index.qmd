@@ -1,0 +1,41 @@
+# Preface {.unnumbered}
+
+**Overview**
+
+This is a research project carried out at the University of Hertfordshire in compliance with its regulations under the supervision of Dr. John Skamarauskas. The project was submitted in partial fulfillment of my Master's in Drug Discovery and Toxicology. The original submission was prepared in Microsoft word, and the data analysis was carried performed using Graphpad prism.
+
+This version of the project published as a quarto book is purely an exploratory effort by me. Same data from original research was used, and R was used to generate plots, models and tables. The results obtained from the R code was compared with the original results from Graphpad which were identical. I decided to do this to improve my working understanding of R and Quarto Markdown.
+
+## **Abstract**
+
+Rat brown adipose tissue (BAT) is recognized as a rich source of semi carbazide-sensitive amine oxidase (SSAO), yet no standardized methods for extracting SSAO from rat BAT have been published. This study aims to develop and optimize a robust methodology for SSAO extraction from rat BAT and to investigate its enzymatic kinetics using benzylamine as a substrate. The study involved comparing different extraction methods, quantifying the extracted protein using Bradford and BCA assays, and assessing SSAO activity through the Amplex^®^ Red monoamine oxidase assay.
+
+The kinetic parameters of SSAO were determined, with a Km value of 0.03193mM for benzylamine, closely aligning with literature under similar experimental conditions. Furthermore, the inhibitory effects of caffeine and simvastatin on SSAO activity were evaluated, although, the Ki values obtained were based on a single experiment, leading to wider error margins and lower confidence.
+
+This research provides a detailed methodology for SSAO extraction from rat BAT, confirming that proteins can be successfully extracted and that SSAO activity remains quantifiable post-extraction. However, further studies with improved experimental controls are recommended to refine the inhibitory kinetics of caffeine and simvastatin on SSAO.
+
+## **Abbreviations**
+
+|                                                      |
+|------------------------------------------------------|
+| BAT - Brown Adipose Tissue                           |
+| BCA - Bicinchoninic Acid                             |
+| BSA - Bovine Serum Albumin                           |
+| CAF - Caffeine                                       |
+| Ki - Inhibition Constant                             |
+| Km - Michaelis Menten Constant                       |
+| SIM - Simvastatin                                    |
+| SSAO - Semi Carbazide Sensitive Amine Oxidase        |
+| V0 - Initial Velocity                                |
+| VAP-1 - Vascular Adhesion Protein 1                  |
+| Vmax - Maximum Velocity                              |
+| HRP - Horseradish Peroxidase                         |
+| EtOH - Ethanol                                       |
+| SEM - Standard Error in Mean                         |
+| MAO A - Monoamine Oxidase A                          |
+| MAO B - Monoamine Oxidase B                          |
+| AOC - Amine Oxidase Copper-Containing                |
+| dH20 - Deionised Water                               |
+| ReLi - Removal of Excess Lipids                      |
+| CST - Cell Signalling Technologies – Commercial kit. |
+| DMSO - Dimethyl Sulfoxide                            |

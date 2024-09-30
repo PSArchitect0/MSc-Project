@@ -1,0 +1,19 @@
+---
+title: "Aim and Objectives"
+---
+
+Rat brown adipose tissue has been reported to be a rich source of SSAO and there have been no published methods in extracting SSAO from rat BAT. This project focuses on identifying and optimising methods for extracting SSAO and studying its kinetics with a known substrate – Benzylamine.
+
+The primary aims of the project are to
+
+1.  Establish a robust and reproducible method to extract SSAO from rat brown adipose tissue.
+2.  Quantitative comparison of protein extracted from different methods.
+3.  Quantitative estimation of SSAO activity in extracts obtained from different methods.
+4.  Estimation of Vmax and Km values for benzylamine on SSAO activity.
+5.  Preliminary analysis of inhibitory activity of caffeine and simvastatin on SSAO activity.
+
+The aim of this project is to identify a method that can be used to extract SSAO from rat brown adipose tissue extracted from male Wistar rats and optimise the method to yield a concentrated SSAO protein extract. The concentration of the protein from extracts obtained by different methods are to be estimated by Bradford and BCA assays.
+
+Secondly, a quantitative estimation of SSAO activity using benzylamine as a substrate is to be done by the Amplex^®^ red monoamine oxidase assay. Following a measurable SSAO activity, a kinetic experiment is to be conducted to assess the Km and Vmax of SSAO activity using Benzylaine as a substrate at different concentrations.
+
+Thirdly, to study the effect of caffeine and simvastatin on SSAO kinetics using benzylamine as the substrate and measure the K~i~ inhibitory constant for the inhibitors.

@@ -1,0 +1,644 @@
+---
+code-fold: true
+code-overflow: wrap
+---
+
+# Results
+
+The extracts obtained from each method were quantified using Bradford and BCA assays. These samples were diluted 10-fold to fit the absorbances obtained into the standard curve. The protein concentrations of the dilutes samples were then calculated using the standard curve. These results were corrected with the dilution factor to calculate the estimated protein concentration of undiluted samples. The results are tabulated and presented as mean @tbl-proteinestimate and compared in @fig-proteinesti. Amplex^®^ red monoamine oxidase assay was used to determine the SSAO activity in the samples from each method after treating the sample with the Amplex^®^ red reaction mixture with 10mM benzylamine as substrate and incubating at 37 ℃ for 30 minutes before measuring the fluorescence. The results of SSAO activity from each sample is presented in @tbl-ssaoactivity and @fig-ssaoactivity .
+
+## Method A
+
+The tissues collected for a period of 4 days were weighed and freeze dried using a freeze dryer to dehydrate the tissue. 11.1g of tissue were freeze dried resulting in a loss of 71.1% of weight(water) and 3.1g of dehydrated tissue was obtained. Defatting of the dehydrated tissue caused a further loss of 1g of fat weight, resulting in 2.1g of tissue. Bradford assay and BCA assay were performed to estimate the protein concentration in the extract obtained from this method A. Only one independent experiment was performed using Method A (refer to 4.2.1) due to unavailability of the freeze dryer during the project. The estimated protein concentration of the extract obtained from method A is 4.2 mg/ml (estimated by Bradford assay) and 4.5 mg/ml (estimated by the BCA assay). The SSAO activity was measured with 10mM Benzylamine as substrate and was found to be 2.02 µmol H~2~O~2~ /mg protein.
+
+## Method B
+
+Three independent experiments were performed by method B [@sec-method-b] for extracting SSAO from rat BAT. Frozen tissues collected over 4 days were used for each experiment. Tissue weights are presented in @tbl-defat and the percentage of fat lost was calculated from the dried tissue weight after treatment with 100%EtOH. Bradford and BCA assays were performed to estimate the protein concentrations in each extract and the results are presented and compared as mean in @tbl-proteinestimate and @fig-proteinesti . The average amount of estimated protein is 6.07 and 6.27 mg/ml by Bradford and BCA assays respectively. The average SSAO activity was measured with 10mM Benzylamine was found to be 1.64 µmol H~2~O~2~ /mg protein @tbl-ssaoactivity .
+
+```{r}
+#| code-fold: true
+#| warning: false
+#| code-overflow: wrap
+#| label: tbl-defat
+#| tbl-cap: 
+#|  - Weights of rat BAT used in method B for protein extraction.
+#| tbl-cap-location: bottom
+#| 
+library(tidyverse)
+library(knitr)
+library(patchwork)
+defat_results<- tibble(
+  Experiment_ID = c("Experiment 1", "Experiment 2", "Experiment 3"),
+  Frozen_weight_g =as.numeric(c(10.81, 9.64, 10.25)),
+  Defatted_dried_weight_g = as.numeric(c(4.62, 5.91, 7.31)),
+) |> 
+  mutate(
+    percentage_fat_lost = 100*(Frozen_weight_g - Defatted_dried_weight_g)/Frozen_weight_g
+    )
+kable(defat_results)
+```
+
+## **Method C**
+
+Three independent experiments were performed by Method C [@sec-method-c] . The tissues were weighed before cutting into tiny pieces for homogenisation. Since there was no ideal way to measure the amount of fat removed by centrifugation, percentage of fat lost was not calculated for extracts obtained from method C. The average estimated protein concentration for extracts obtained by method C is 5.27 and 5.43 mg/ml by Bradford and BCA assays respectively. The average SSAO activity from samples obtained by method C was 0.02 µmol H~2~O~2~ /mg protein.
+
+```{r}
+#| code-fold: true
+#| warning: false
+#| code-overflow: wrap
+#| label: tbl-proteinestimate
+#| tbl-cap-location: bottom
+#| tbl-cap: 
+#|  - Estimated protein concentration (mg/ml) by Bradford and BCA assay for samples obtained by Method A (One independent experiment), and Method B and Method C (3 independent experiments)
+
+library(tidyverse)
+library(knitr)
+bradford_BCA<- tibble(
+  Experiment_ID = c("Experiment 1", "Experiment 2", "Experiment 3", 
+                    "Experiment 1", "Experiment 2", "Experiment 3"),
+  Method_A = as.numeric(c(4.2, NA, NA, 4.5, NA, NA)),
+  Method_B = c(6.4, 5.8, 6.0, 6.5, 6.1, 6.2),
+  Method_C = c(5.1, 4.9, 5.8, 5.4, 5, 5.9),
+  Assay = c("Bradford", "Bradford", "Bradford", "BCA", "BCA", "BCA")
+)
+kable(bradford_BCA)
+```
+
+```{r}
+#| code-fold: true
+#| warning: false
+#| code-overflow: wrap
+#| label: fig-proteinesti
+#| fig-cap: 
+#|  - Comparision of average protein concentration estimate in extracts obtained from Method_A, Method_B, and Method_C by BCA and Bradford assays.
+#| fig-width: 5
+#| fig-align: center 
+mean_data <-
+  bradford_BCA |> 
+  group_by(Assay) |> 
+  summarise(across(starts_with("method"), mean, na.rm = TRUE)) |> 
+  pivot_longer(cols = starts_with("method"),
+               names_to = "Method",
+               values_to = "Mean")
+
+ggplot(mean_data, aes(x = Method, y = Mean, fill = Assay)) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.9))+ 
+  scale_y_continuous(limits = c(0, 7))+
+  labs(
+    title = "Protein estimates by Bradford assay (mg/ml)", 
+    x = NULL, 
+    y = "Average protein\nconcentration estimate (mg/ml)"
+  ) +
+  theme_minimal() +
+  scale_fill_manual(values = c("Bradford" = "black", "BCA" = "grey")) +
+  theme(
+    plot.title = element_text(size = 14, hjust = 0.5),
+    axis.title.y = element_text(size = 12, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+    axis.text.x = element_text(size = 10),
+    axis.text.y = element_text(size = 10),
+    legend.title = element_text(size = 10),
+    legend.text = element_text(size = 9),
+    legend.position = "right",
+    plot.margin = margin(10, 10, 10, 10)
+  ) +
+  geom_text(
+    aes(label = round(Mean, 2)),
+    vjust = -0.5,
+    position = position_dodge(width = 0.9),
+    size = 3
+  )+ theme_classic()
+```
+
+```{r}
+#| code-fold: true
+#| warning: false
+#| code-overflow: wrap
+#| label: tbl-ssaoactivity
+#| tbl-cap: SSAO activity corrected to protein concentration from respective BCA results for Method A (One independent experiment), and Method B and Method C (3 independent experiments
+#| tbl-cap-location: bottom
+library(tidyverse)
+library(knitr)
+ssao_activity<- tibble(
+  Experiment_ID = c("Experiment 1", "Experiment 2", "Experiment 3"),
+  Method_A = as.numeric(c(2.018182, NA, NA)),
+  Method_B = c(1.553474, 1.72336, 1.649069),
+  Method_C = c(0.024903, 0.013653, 0.011098),
+)
+
+means_row <- tibble(
+  Experiment_ID = "Mean",
+  Method_A = mean(ssao_activity$Method_A, na.rm = TRUE),
+  Method_B = mean(ssao_activity$Method_B, na.rm = TRUE),
+  Method_C = mean(ssao_activity$Method_C, na.rm = TRUE)
+)
+
+ssao_activity_with_means <- bind_rows(ssao_activity, means_row)
+kable(ssao_activity_with_means)
+```
+
+```{r}
+#| code-fold: true
+#| warning: false
+#| code-overflow: wrap
+#| label: fig-ssaoactivity
+#| fig-width: 5
+#| fig-align: center
+#| fig-cap: 
+#|  - Comparison SSAO activity corrected to protein concentration from respective BCA results for Method A (One independent experiment), and Method B and Method C (3 independent experiments).
+
+means_row |> pivot_longer(cols = starts_with("Method"),
+                          names_to = "Method",
+                          values_to = "Mean") |> 
+  ggplot(aes(x = Method, y = Mean))+
+  geom_bar(stat = "identity", fill = "black", width = 0.5
+           )+ theme_classic()+
+  coord_cartesian(ylim = c(0, 2.5))+
+  geom_text(aes(label = round(Mean, 2)),
+    vjust = -0.5,
+    position = position_dodge(width = 0.9),
+    size = 3)+
+  labs(title = "SSAO activity",
+       x = NULL,
+       y = "SSAO activity\n µmol H2O2 /mg protein ")
+```
+
+## Enzyme Kinetics
+
+The extract obtained from Experiment 1 of method B is used to measure the kinetic activity of SSAO by Amplex^®^ red monoamine oxidase assay. The SSAO activity was measured as described in @sec-measureSSAO . For measuring the continuous kinetic activity of SSAO, the instrument was setup in plate mode which measured the fluorescence every 30 seconds for 10 minutes. The fluorescence measurements resulting from the reaction mixture were used as blanks and all the values were corrected accordingly. The gain settings and focal length were maintained constant to obtain consistent readings.
+
+Resorufin at different concentrations was used to establish a standard curve to determine the slope and offset using a linear regression curve. The fluorescence readings were exported into excel and formatted to ensure a consistent data format for processing. The mean of the replicate readings was converted into equivalent H~2~O~2~ concentrations using the resorufin standard curve equation. These values were plotted against time in minutes to calculate the change in H~2~O~2~ concentration over time using linear regression.
+
+Individual curves were plotted for values obtained from each benzylamine concentration.
+
+$$
+{V0} = \frac{Vmax * [S]}{Km + [S]}
+$$ {#eq-mm}
+
+```{r}
+#| code-fold: true
+#| warning: false
+#| code-overflow: wrap
+#| label: fig - ssao_activity_control
+#| fig-cap: SSAO activity measured over 10 minutes using benzylamine as substrate
+#| fig-width: 5
+#| fig-align: center
+
+library(broom)
+library(ggpubr)
+
+# Importing the data from a csv file
+kinetic_data <- read_csv("E:/LearningR/rforlearn/GIT/academic_works/kinetic_data.csv")
+
+# Pivoting the data to fit the visualisation needs
+
+kinetic_data_pivot <- kinetic_data |> 
+  pivot_longer(
+    cols = !(starts_with("Time")),
+    names_to = c("test_group", "inhibitor_concn", "substrate_concn"),
+    names_sep = "_",
+    values_to = "ssao_activity"
+  ) |> mutate(inhibitor_concn = parse_number(inhibitor_concn),
+              substrate_concn = parse_number(substrate_concn))
+
+# Isolating the ssao activity for control group for plot
+
+kinetic_data_pivot |> 
+  group_by(test_group) |> 
+  filter(test_group == "Control") |> mutate(substrate_concn = factor(substrate_concn)) |> 
+  ggplot(aes(x = `Time (min)`, 
+             y = ssao_activity, 
+             color = substrate_concn, 
+             group = substrate_concn))+ 
+  geom_point() + 
+  geom_smooth(
+    method = "lm",
+    formula = y ~ x,
+    se = FALSE,
+    )+
+  labs(
+    title = "SSAO kinetics - Control",
+    y = "SSAO activity \n µmol H2O2/mg protein", color = "Substrate Conc. (mM)"
+  )+ theme_classic2()
+
+
+```
+
+The slope of these curves represents the initial velocity of each enzyme reaction at different substrate concentrations and reported as V~0~ (µmol H~2~O~2~/min/mg protein).
+
+```{r}
+#| label: tbl-iniV
+#| tbl-cap: Initial Velocity for ssao activity for each substrate concentration calculated by linear regression.
+#| tbl-cap-location: bottom
+#| tbl-colwidths: [60,40]
+#|
+# Creating a separate df for the control group for deriving initial velocity
+
+kinetic_data_pivot_control <- kinetic_data_pivot |> filter(test_group == "Control")
+
+
+# lm modeling to generate slope for each substrate concentration
+
+lm_results <- kinetic_data_pivot_control |> 
+  group_by(substrate_concn) |> 
+  do(model = lm(ssao_activity ~ `Time (min)`, data = .)) |> 
+  mutate(
+  intercept = coef(model)[[1]],
+  slope = coef(model)[[2]],
+  equation = sprintf("y = %.4fx + %.4f", slope, intercept))
+
+# SSAO activity - initial velocity printed into a separate df
+ssao_control_Vo <- select(lm_results, substrate_concn, slope)
+
+# renaming the columns to S and V for easier use
+ssao_control_Vo <- ssao_control_Vo |> 
+  rename(c('V' = slope, 'S' = substrate_concn))
+
+table_ssao_control_iniV <- ssao_control_Vo |> 
+  rename(c('Initial Velocity' = "V", 
+           'Substrate concentration' = "S"))
+kable(tibble(table_ssao_control_iniV), format = "html", align = "c")
+
+```
+
+The initial velocity for each substrate concentration was tabulated and analysed using non-linear regression Michaelis-Menten kinetic model (@eq-mm) to generate the Michaelis-Menten curve @fig-mmplot and determine Km for benzylamine and Vmax values [@Copeland.R.A.2005].
+
+```{r}
+#| label: fig-mmplot
+#| fig-cap: Micheales Menten plot for SSAO enzyme kinetics using benzylamine as substrate
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+
+# Kinetic modelling to produce mm plots
+
+# Define the Michaelis-Menten equation
+mm_equation <- function(S, Vm, Km) {
+  (Vm * S) / (Km + S)
+}
+
+# non-linear fitting
+mm_fit <- nls(V~ mm_equation(S, Vm, Km),
+              data = ssao_control_Vo,
+              start = list(Vm = max(ssao_control_Vo$V), Km = median(ssao_control_Vo$S)))
+
+# Extracting the calculated parameters from above model
+params <- summary(mm_fit)$parameters
+Km     <- params["Km", "Estimate"]
+Vm     <- params["Vm", "Estimate"]
+Vm_se  <- params["Vm", "Std. Error"]
+Km_se  <- params["Km", "Std. Error"]
+
+# Generating points for the fitted curve
+S_curve <- seq(0, max(ssao_control_Vo$S), length.out = 100)
+V_curve <- predict(mm_fit, newdata = list(S = S_curve))
+
+# mm_plot generation
+ggplot(ssao_control_Vo, aes(x = S, y = V)) +
+  geom_point(size = 3)+
+  geom_line(data = data.frame(S = S_curve, V = V_curve), color = "blue")+
+  labs(title = "Micheales-Menten plot for SSAO kinetics",
+       x = "Substrate Concentration (mM)",
+       y = "Initial Velocity \n (µmol H2O2/min/mg protein)")+
+  theme_classic2()+
+  annotate("text", x = max(ssao_control_Vo$S), y = min(ssao_control_Vo$V),
+           label = sprintf("Vmax = %.4f ± %.4f µmol H2O2/min
+                           \nKm = %.4f ± %.4f mM", 
+                           Vm, Vm_se, Km, Km_se),
+           hjust = 1, vjust = 0)
+
+```
+
+From the nonlinear Michaelis Menten kinetic model, the Km and Vmax values were determined to be 0.03193mM and 0.02941 µmol H~2~O~2~/min, respectively.
+
+## **Enzyme Inhibition**
+
+A key objective of this project is to measure the influence of caffeine and simvastatin on SSAO activity. 10mM caffeine stock solution was prepared by dissolving 19.4mg of caffeine in 10ml of dH~2~O. Further dilutions of 1 and 0.1 mM were prepared from the 10Mm stock solution and were used to in the kinetic experiments. Similarly, 100mM simvastatin stock was prepared by directly adding 4.78ml of DMSO to the vial containing 200mg of simvastatin powder. 10, 1, and 0.1mM dilutions of simvastatin were prepared from the 100mM stock solution.
+
+To study the effect of these inhibitors, 10µL of each inhibitor at different concentrations were added to wells containing 60µL of SSAO extract prepared by Method B (Experiment 1) in triplicate. The plates were incubated at 37℃ prior to adding the reaction mixtures containing different concentrations of the substrate.
+
+The enzyme activity was initiated by adding the reaction mixtures the containing substrate and the fluorescence measurements were started as quickly as possible. The fluorescence values of control samples without inhibitors, and samples containing inhibitors were measured every 30 seconds for 10 minutes. This data was exported to excel and was formatted for further analysis. The fluorescence readings were converted to equivalent H~2~O~2~ concentrations using the resorufin standard curve equation. These values were plotted against time in minutes to obtain the initial velocity. The rate of hydrogen peroxide formation is provided in the appendix1 for all the kinetic experiments performed without and with different concentrations of the inhibitors. The initial velocity of each group of substrate concentrations with and without inhibitors were transferred to GraphPad to plot a nonlinear regression curve using the competitive inhibition kinetic model. This analysis was performed to calculate the Ki, Km, and Vmax of the inhibition reaction. The nonlinear regression model for competitive inhibition uses the following equation [@Copeland.R.A.2005]:
+
+$$
+Km obs = Km*{(1+\frac{[I]}{Ki})}
+$$ {#eq-nlm-CI}
+
+$$
+Y = \frac{Vmax*X}{Kmobs + X}
+$$
+
+Two-way ANOVA and Ad-Hoc Tukey’s comparison was performed to compare the difference in kinetic velocity between control and samples treated with different concentrations of the inhibitor. A significant difference in the initial velocities between different concentrations of the inhibitor and the control is represented with a p-value less than 0.05.
+
+### SSAO inhibition by Simvastatin
+
+From the competitive inhibition model @eq-nlm-CI , the K~i~ for simvastatin was calculated to be 2.145 mM and the K~m~ and V~max~ for benzylamine on SSAO were 0.01893 mM and 0.02385 µM H~2~O~2~/min respectively ( @fig-SIM-CI , @tbl-sim-nlm-parameters ). The initial velocities for each simvastatin-treated SSAO sample were determined by performing linear regression on the curve of H₂O₂ formation over time, as illustrated in @fig-ssao-sim-activity and @tbl-sim-ini-v .
+
+```{r}
+#| label: fig-ssao-sim-activity
+#| fig-cap: 
+#|  - SSAO activity measured over 10 minutes with benzylamine as a substrate (1, 0.5, 0.25, 0.125, 0.0625mM) and in the presence of simvastatin (SIM) at 0.1, 1, 10mM concentration. SSAO activity is presented as µM H2O2/mg protein.  A – SSAO activity in presence of 0.1mM SIM, B – SSAO activity in the presence of 1mM SIM, C – SSAO activity in the presence of 10mM SIM.
+#| warning: false
+#| fig-align: center
+
+kinetic_data_pivot |> 
+  group_by(test_group) |> 
+  filter(test_group == "SIM") |> 
+  mutate(substrate_concn = factor(substrate_concn)) |> 
+  ggplot(aes(x = `Time (min)`, 
+             y = ssao_activity, 
+             color = substrate_concn, 
+             group = substrate_concn))+ 
+  geom_point() + 
+  geom_smooth(method = lm, se = FALSE)+ 
+  scale_x_continuous(breaks = c(0,5,10))+
+  labs(title = "SSAO activity in the presence of 0.1, 1, and 10mM simvastatin",
+       y = "SSAO activity \n µmol H2O2/mg protein",
+       color = "Substrate Concn. (mM)")+
+  facet_wrap(~ inhibitor_concn)+
+  theme_classic2()+
+  theme(legend.position = "right")+
+  theme(
+    plot.title = element_text(size = 10, hjust = 0.5),
+    axis.title.y = element_text(size = 10, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+    axis.text.x = element_text(size = 10),
+    axis.text.y = element_text(size = 10),
+    legend.title = element_text(size = 8),
+    legend.text = element_text(size = 6),
+    plot.margin = margin(10, 10,10, 10)
+  )+
+  guides(colour = guide_legend(ncol = 1, position = "right"))
+```
+
+```{r}
+#| label: tbl-sim-ini-v
+#| tbl-cap: Initial velocities of SSAO activity in the presence of simvastatin at 0.1, 1, and 1mM concentrations.
+#| tbl-cap-location: bottom
+#| 
+kinetic_data_pivot_sim <- kinetic_data_pivot |> filter(test_group == "SIM")
+
+
+# lm modeling to generate slope for each substrate concentration
+
+lm_results_sim <- kinetic_data_pivot_sim |> 
+  group_by(substrate_concn, inhibitor_concn) |> 
+  do(model = lm(ssao_activity ~ `Time (min)`, data = .)) |> 
+  mutate(
+  intercept = coef(model)[[1]],
+  slope = coef(model)[[2]],
+  equation = sprintf("y = %.4fx + %.4f", slope, intercept))
+
+lm_results_sim |> pivot_wider(
+  id_cols = substrate_concn,
+  names_from = inhibitor_concn,
+  values_from = slope
+) |> rename('Substrate Concentration (mM)' = "substrate_concn",
+            'SIM 10 mM' = "0.1",
+            'SIM 1 mM' = "1",
+            'SIM 0.1 mM' = "10"
+            ) |> kable(align = "c")
+
+```
+
+```{r}
+#| label: fig-SIM-CI
+#| fig-cap: SSAO inhibition by simvastatin calculated by non-linear competetive inhibition model
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+
+library(minpack.lm)
+# Create the dataset
+data <- data.frame(
+  S = rep(c(0, 0.0625, 0.125, 0.25, 0.5, 1), each = 4),
+  I = rep(c(0, 10, 1, 0.1)),
+  V = c(0.006258, 0.01155, 0.01338, 0.009199,
+        0.02154, 0.01257, 0.0186, 0.01618,
+        0.02195, 0.01393, 0.0181, 0.01695,
+        0.02337, 0.01593, 0.01813, 0.01909,
+        0.02688, 0.01474, 0.01914, 0.0218,
+        0.03152, 0.02001, 0.02328, 0.02541))
+
+# Define the competitive inhibition model function using GraphPad's equation
+comp_inhib <- function(S, I, Vmax, Km, Ki) {
+  Km_obs <- Km * (1 + I / Ki)
+  (Vmax * S) / (Km_obs + S)
+}
+
+# Set initial parameter values (using GraphPad's results)
+start_vals <- list(Vmax = 0.1, Km = 0.1, Ki = 0.1)
+
+# Fit the model using nlsLM for more robust fitting
+sim_fit <- nlsLM(V ~ comp_inhib(S, I, Vmax, Km, Ki), 
+             data = data, 
+             start = start_vals,
+             lower = c(Vmax = 0, Km = 0, Ki = 0),
+             control = nls.lm.control(maxiter = 1000, maxfev = 1000))
+
+# Extract the fitted parameters
+sim_params <- coef(sim_fit)
+sim_summary_fit <- summary(sim_fit)
+
+
+# Calculate R-squared
+ss_total <- sum((data$V - mean(data$V))^2)
+ss_residual <- sum(residuals(sim_fit)^2)
+r_squared <- 1 - (ss_residual / ss_total)
+
+sim_nlm_values <- c(
+Km <- sprintf("%.5f", sim_params["Km"]),
+Vmax <- sprintf("%.5f", sim_params["Vmax"]),
+Ki <- sprintf("%.5f", sim_params["Ki"]),
+r_squaredv <- sprintf("%.5f", r_squared))
+
+
+
+# MM Plot
+ggplot(data, aes(x = S, y = V, color = factor(I))) +
+  geom_point(size = 3) +
+  geom_line(data = data.frame(S = rep(seq(0, max(data$S), length.out = 100), 4),
+                              I = rep(c(0, 0.1, 1, 10), each = 100)) |> 
+              mutate(V = comp_inhib(S, I, sim_params["Vmax"], 
+                                    sim_params["Km"], 
+                                    sim_params["Ki"])),
+            aes(x = S, y = V, color = factor(I))) +
+  labs(title = "Competitive Inhibition of SSAO by simvastatin",
+       x = "Substrate Concentration (mM)",
+       y = "Initial Velocity \n(µmol H2O2/min/mg protein)",
+       color = "Simvastatin Concentration (mM)") +
+  theme_classic2() +
+  scale_color_brewer(palette = "Set1")+
+  annotate("text", 
+           x = 0.75, y = 0.01,
+           label = sprintf("Vmax = %.4f\nKm = %.4f\n Ki = %.4f", 
+                           sim_params["Vmax"], 
+                           sim_params["Km"], 
+                           sim_params["Ki"]))+
+  theme(legend.position = "bottom")+
+  guides(colour = guide_legend(nrow = 1))
+
+```
+
+```{r}
+#| label: tbl-sim-nlm-parameters
+#| tbl-cap: Non linear fit parameters for SSAO inhibition by simvastatin
+#| tbl-cap-location: bottom
+
+sim_ssao_nlm_results <- tibble(Parameters_SIM_SSAO = c("Km", "Vmax", "Ki", "R-squared"), 
+                               Values = sim_nlm_values)
+kable(sim_ssao_nlm_results)
+```
+
+### SSAO inhibition by Caffeine
+
+Like simvastatin, caffeine also follows the competitive inhibition model ( @eq-nlm-CI ) and the K~i~ for caffeine was calculated from one independent experiment ( @fig-CAF-CI ). The K~i~ value for caffeine calculated from competitive inhibition model is 6.768mM and the K~m~ and V~max~ for benzylamine on SSAO were 0.02903mM and 0.02850 µM H~2~O~2~/min, respectively ( @fig-CAF-CI and @tbl-nlm-caf-fit ).
+
+```{r}
+#| label: fig-ssao-activity-plot-caf
+#| fig-cap: 
+#|  - SSAO activity measured over 10 minutes with benzylamine as a substrate (1, 0.5, 0.25, 0.125, 0.0625mM) and in the presence of caffeine (CAF) at 0.1, 1, 10mM concentration. SSAO activity is presented as µM H2O2/mg protein. A – SSAO activity in presence of 0.1mM CAF, B – SSAO activity in the presence of 1mM CAF, C – SSAO activity in the presence of 10mM CAF. 
+#| warning: false
+#| fig-align: center
+
+kinetic_data_pivot |> 
+  group_by(test_group) |> 
+  filter(test_group == "CAF") |> 
+  mutate(substrate_concn = factor(substrate_concn)) |> 
+  ggplot(aes(x = `Time (min)`, 
+             y = ssao_activity, 
+             color = substrate_concn, 
+             group = substrate_concn))+ 
+  geom_point() + 
+  labs(title = "SSAO activity in the presence of 0.1, 1, and 10mM caffeine",
+       y = "SSAO activity \n µmol H2O2/mg protein",
+       color = "Substrate Concn. (mM)")+
+  geom_smooth(method = lm, se = FALSE)+ 
+  facet_wrap(~ inhibitor_concn)+
+  scale_x_continuous(breaks = c(0,5,10))+
+  theme_classic2()+
+  theme(legend.position = "right")+
+  theme(
+    plot.title = element_text(size = 10, hjust = 0.5),
+    axis.title.y = element_text(size = 10, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+    axis.text.x = element_text(size = 10),
+    axis.text.y = element_text(size = 10),
+    legend.title = element_text(size = 8),
+    legend.text = element_text(size = 6),
+    plot.margin = margin(8, 8, 8, 8)
+  )+
+  guides(colour = guide_legend(ncol = 1))
+```
+
+```{r}
+#| label: tbl-caf-ini-v
+#| tbl-cap: Initial velocities of SSAO activity in the presence of caffeine at 0.1, 1, and 1mM concentrations.
+#| tbl-cap-location: bottom
+#| 
+kinetic_data_pivot_caf <- kinetic_data_pivot |> filter(test_group == "CAF")
+
+
+# lm modeling to generate slope for each substrate concentration
+
+lm_results_caf <- kinetic_data_pivot_caf |> 
+  group_by(substrate_concn, inhibitor_concn) |> 
+  do(model = lm(ssao_activity ~ `Time (min)`, data = .)) |> 
+  mutate(
+  intercept = coef(model)[[1]],
+  slope = coef(model)[[2]],
+  equation = sprintf("y = %.4fx + %.4f", slope, intercept))
+
+lm_results_caf |> pivot_wider(
+  id_cols = substrate_concn,
+  names_from = inhibitor_concn,
+  values_from = slope
+) |> rename('Substrate Concentration (mM)' = "substrate_concn",
+            'CAF 10 mM' = "10",
+            'CAF 1 mM' = "1",
+            'CAF 0.1 mM' = "0.1"
+            ) |> kable(align = "c")
+```
+
+```{r}
+#| label: fig-CAF-CI
+#| fig-cap: SSAO inhibition by caffeine, calculated by non-linear competetive inhibition model.
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+
+library(minpack.lm)  # For more robust nonlinear fitting
+
+# Create the dataset
+data <- data.frame(
+  S = rep(c(0, 0.0625, 0.125, 0.25, 0.5, 1), each = 4),
+  I = rep(c(0, 0.1, 1, 10)),
+  V = c(0.006258, 0.01342, 0.01318, 0.01224,
+        0.02154, 0.02067, 0.01854, 0.01614,
+        0.02195, 0.02326, 0.02063, 0.01856,
+        0.02337, 0.02429, 0.02331, 0.02021,
+        0.02688, 0.0265, 0.02402, 0.0216,
+        0.03152, 0.0315, 0.03083, 0.02638))
+
+# Define the competitive inhibition model function using GraphPad's equation
+comp_inhib <- function(S, I, Vmax, Km, Ki) {
+  Km_obs <- Km * (1 + I / Ki)
+  (Vmax * S) / (Km_obs + S)
+}
+
+# Set initial parameter values (using GraphPad's results)
+start_vals <- list(Vmax = 0.1, Km = 0.1, Ki = 0.1)
+
+# Fit the model using nlsLM for more robust fitting
+fit <- nlsLM(V ~ comp_inhib(S, I, Vmax, Km, Ki), 
+             data = data, 
+             start = start_vals,
+             lower = c(Vmax = 0, Km = 0, Ki = 0),
+             control = nls.lm.control(maxiter = 1000, maxfev = 1000))
+
+# Extract the fitted parameters
+params <- coef(fit)
+summary_fit <- summary(fit)
+# R-squared
+ss_total <- sum((data$V - mean(data$V))^2)
+ss_residual <- sum(residuals(fit)^2)
+r_squared <- 1 - (ss_residual / ss_total)
+
+caf_nlm_values <- c(
+Km <- sprintf("%.5f", params["Km"]),
+Vmax <- sprintf("%.5f", params["Vmax"]),
+Ki <- sprintf("%.5f", params["Ki"]),
+r_squaredv <- sprintf("%.5f", r_squared))
+
+
+
+
+ggplot(data, aes(x = S, y = V, color = factor(I))) +
+  geom_point(size = 3) +
+  geom_line(data = data.frame(S = rep(seq(0, max(data$S), length.out = 100), 4),
+                              I = rep(c(0, 0.1, 1, 10), each = 100)) %>%
+              mutate(V = comp_inhib(S, I, params["Vmax"], params["Km"], params["Ki"])),
+            aes(x = S, y = V, color = factor(I))) +
+  labs(title = "Competitive Inhibition of SSAO by caffeine",
+       x = "Substrate Concentration (mM)",
+       y = "Initial Velocity \n(µmol H2O2/min/mg protein)",
+       color = "Caffeine Conc. (mM)") +
+  theme_classic2() +
+  scale_color_brewer(palette = "Set1")+
+  annotate("text", 
+           x = 0.75, y = 0.01,
+           label = sprintf("Vmax = %.2f\nKm = %.4f\n Ki = %.4f",
+                           params["Vmax"], 
+                           params["Km"], 
+                           params["Ki"]))+
+  theme(legend.position = "bottom")+
+  guides(colour = guide_legend(nrow = 1))
+
+
+```
+
+```{r}
+#| label: tbl-nlm-caf-fit
+#| tbl-cap: Non linear fit parameters for SSAO inhibition by caffeine
+#| tbl-cap-location: bottom
+
+caf_ssao_nlm_results <- tibble(Parameters_CAF_SSAO = c("Km", "Vmax", "Ki", "R-squared"), 
+                               Values = caf_nlm_values)
+kable(caf_ssao_nlm_results)
+```

@@ -1,0 +1,80 @@
+---
+bibliography: references.bib
+---
+
+# Introduction
+
+## **Amine Oxidases and substrates**
+
+Amine oxidases are a common group of copper containing enzymes highly expressed in smooth muscle cells, vascular endothelial cells and adipocytes in humans and rats [@Manasieva2022; @Salmi2000; @Salmi1992]. The key enzymatic function of these proteins is oxidating primary amines into aldehydes . This also results in formation of byproducts such as ammonium (NH~4~^+^) and hydrogen peroxide(H~2~O~2~) in a two-step reaction @fig-Deamination_of_primaryamine_SSAO . [@Salmi2019]
+
+![Deamination of a primary amine by SSAO to form an aldehyde, ammonium, and hydrogen peroxide in a 2-step reaction.](images/clipboard-4135545146.png "fig"){#fig-Deamination_of_primaryamine_SSAO .fig fig-env="fig" width="277"}
+
+Semi carbazide sensitive amine oxidase (SSAO) also known as the vascular adhesion protein belongs to this class of enzymes and are primarily present on the epithelial cell membranes of the vascular surfaces. Some of the known forms of SSAO enzymes in humans are AOC1, AOC2, and AOC3. AOC1 is involved in regulating histaminase, whereas AOC2 and AOC3 (VAP-1) catalyse various monoamines. AOC2 has a large substrate channel compared to the AOC3. The preferred substrates for AOC2 are ethylamine, tyramine, and p-tyramine, whereas AOC3 or VAP 1 prefers methylamine [@Salmi2019]. Benzylamine is a xenobiotic substrate of AOC-3 or VAP1 and is more commonly used in invitro studies of SSAO kinetics and VAP 1 contributes to approximately 90% of cellular SSAO activity in mammals [@Salmi2019] . Other synthetic substrates such as aminoacetone, allylamine, and methylamine are also used in invitro experiments [@Iglesias-Osma2005; @Lyles1995; @Manasieva2023; @Manasieva2022]. This project studies the activity of SSAO using benzylamine as the only substrate as it is specific to SSAO and no other mono amine oxidases (MAO).
+
+## **SSAO/VAP1 Physiology and Pathophysiology**
+
+The primary role of SSAO as an enzyme is catalysing primary amines that are present in the circulation into aldehydes and hydrogen peroxide. However, their expression and activity has been found to be upregulated by inflammatory and immune mediators such as IL-1, TNF-α, and other lipopolysaccharides in an organ culture study using human tonsillar tissue [@Arvilommi1997]. The study also reported that there is no significant difference in the characteristics of VAP-1 induced by inflammatory mediators and the naturally occurring VAP-1. Studies have also shown that VAP-1 directly regulates lymphocytes / leukocytes rolling under a defined laminar shear supporting the lymphocyte extravasation process [@Salmi2000]. This increases the understanding on VAP-1 expression and the outcomes of its enzymatic activity on physiology and pathophysiology. The resulting products of SSAO activity are aldehydes and hydrogen peroxides which are implicated in development of various pathologic complications that include atherosclerosis, diabetes, and obesity [@Murata2017; @Wang2018]. The extravasation cascade of leukocytes influenced by VAP-1 is defined as a key point in development of various pathologies such as Fibrosis, inflammation, ischemia reperfusion injury, and even cancer [@Salmi2000]. Most of these effects were studied by blocking the activity of VAP-1 using SSAO inhibitors [@Danielli2022; @Li2021; @Wang2018]. VAP-1 is also found in circulation / serum with almost the same characteristics of the transmembrane bound VAP-1. Studies have reported that the levels of serum VAP-1 is increased with pathologies such as colorectal cancer, chronic liver disease, gastric cancer, inflammation, smoking, and aging [@Kurkijarvi2000; @Pannecoeck2015; @Toiyama2009; @Yasuda2011].
+
+## **SSAO in metabolic disorders**
+
+Recent trends in metabolic health have shown that obesity, diabetes, and cardiovascular diseases are the leading causes of morbidity and loss of quality of life [@Chew2023]. This makes it one of the growing health concerns for every major health care organisation and insurance companies.
+
+![Global burden of metabolic diseases portraying various factors that lead to metabolic diseases causing increase in morbidity and disability adjusted life years (DALYs)](images/clipboard-444669600.png){#fig-DALY}
+
+@fig-DALY provides a comprehensive overview of the several factors leading to fatal metabolic disorders such as obesity, hyperlipidemia, non-alcoholic fatty liver disease (NAFLD), type 2 diabetes mellitus, and hypertension.
+
+Circulating SSAO is implicated in the pathogenesis of metabolic disorders such as obesity, atherosclerosis, and diabetes mellitus by promoting weight gain by producing an insulin like action [@Zorzano2003]. Higher levels of SSAO in humans have been reported in various metabolic and cardiovascular conditions like stroke, myocardial infarction, atherosclerosis, diabetes, and obesity [@Boomsma2000; @Bour2009; @Sun2018; @Unzeta2021]. The list of studies looking at SSAO as a target for management of cardiovascular and metabolic diseases provides conclusive evidence of the role SSAO plays in their pathogenesis [@Abella2003; @Boomsma2000; @Jarnicki2016; @Obata2006; @Papukashvili2020; @Schilter2015; @Tábi2013; @Unzeta2021; @Yan2023; @Yu1998].
+
+## **Adipose Tissue**
+
+Adipose tissue is an essential part of the mammalian lipid metabolism which is used to store the excess lipids as triglycerides and aiding the body to use them as fatty acids in between meals [@Börgeson2022]. In metabolic aberrations, the function of the adipose tissues is compromised resulting in excess circulating lipids and fat deposition in peripheral organs leading to metabolic diseases such as diabetes, atherosclerosis, obesity, and fatty liver disease [@Belligoli2019; @Chait2020; @Chusyd2016]. White adipose tissue (WAT) and brown adipose tissue (BAT) are the two most common types of adipose tissues present in mammals. White adipose tissue primarily stores the excess lipids and releases when the body needs it. BAT, in addition to storing the excess lipids they are also involved in thermogenesis in mice, rats, and humans [@Blondin2020, @Börgeson2022].
+
+The adipose tissues express a wide range of proteins that include amine oxidases such as the SSAOs (BARRAND et al., 1984; Barrant & Callingham, 1984). Both WAT and BAT higher levels of SSAO which plays a key role in activation of glucose transport and prevention of lipolysis in both humans and rodents [@Zorzano2003].
+
+This project is aimed at successfully extracting SSAO from rat brown adipose tissue by a suitable methodology. A major barrier in using adipose tissue is the quantity of lipids present in the adipose tissues. Brown adipose tissue from rats is chosen to be the source of the enzyme for the following reasons.
+
+1.  Previous studies involving the use of adipose tissue for extraction of proteins have been reported in the literature. These reports also provide the protocol for a successful removal of fat and compares the results of protein extracted from WAT and BAT [@Marin2019].
+2.  The chosen animal for this project is rat as they are more commonly used at the University of Hertfordshire. Since a wide range of tissues are being used for other experiments, use of adipose tissue from this animal will aid in the three Rs of animal research.
+3.  The quantity of BAT that can be extracted from rats are significantly more than mice.
+
+## **Caffeine and Simvastatin**
+
+***Caffeine*** is an aromatic purine alkaloid from the methylxanthine class compounds. Commonly used to increase alertness, concentration, and improve energy levels. Additionally, caffeine is shown to have various other health benefits such as neuroprotective, hepatoprotective, weight loss, and physical performance improvements owing to its antioxidant properties. Caffeine exhibits its antioxidant properties by acting as a scavenger of free radicals and increasing the concentration of endogenous antioxidants such as glutathione (GSH) [@Reddy2024].
+
+Caffeine has gained some attention as it has been reported to aid in weight loss by stimulating lipolysis, thermogenesis, appetite suppression, and increased metabolic rate. These effects closely match with observations when SSAO is inhibited by known inhibitors in various studies [@Che2012]. This study aims to determine if caffeine possess a quantifiable inhibitory effect on SSAO.
+
+***Simvastatin*** is one of the common medications prescribed to lower cholesterol levels and used as preventative therapeutic for various cardiovascular and cerebrovascular conditions. A study by Sun et al., reported that simvastatin blocks soluble SSAO/VAP1 release in rabbit animal models of cerebral ischemia. However, this study does not provide a more accurate estimate of in IC50 or the Ki for simvastatin on SSAO but only discusses the reduction in SSAO release into the blood plasma [@Sun2018].
+
+Studying the effects of caffeine and simvastatin on SSAO activity paves direction for considering commonly used molecules in par with some of the new chemical entities being studied for their inhibitory properties on SSAO/VAP- 1.
+
+## **SSAO/VAP-1 Inhibitors**
+
+Some of the most widely studied compounds with an inhibitory effect on SSAO are small molecules that include hydrazines, benzylamides, vitamin B1 derivatives, oxime based primary amine oxidase inhibitors and peptides [@Manasieva2022; @Pannecoeck2015].
+
+| Name of SSAO/VAP-1 Inhibitors | Off Target | Model | Species | Major effects | References |
+|------------|------------|------------|------------|------------|------------|
+| **Allyl-amines** |  |  |  |  |  |
+| LJP-1586 | MAO-A/B | ICH, SAH, Atherosclerotic plaque | CD1 mice, Sprague-Dawley rats, LDLr-/- ApoB100/100 mice | Improved neurological scores. Improved neurological outcomes. | [@Ma2011; @Silvola2016; @Xu2014] |
+| MDL-72974A | MAO-B | Atherosclerosis, Obesity | KKAy mice | Reduction of weight gain and atherosclerotic lesions. Reduction of weight gain | [@Yu2002; @Yu2004] |
+| PXS-4728A | / | Atherosclerosis | New Zealand white rabbits, Apo E-/- mice | Reduction of weight gain and atherosclerotic plaques. Reduction of atheroma and oxidative stress. | [@Wang2018] |
+| **Hydra-zines** |  |  |  |  |  |
+| Aminoguanidine | DAO | Atherosclerosis | KKAy mice | Reduction of weight gain and atherosclerotic lesions. | [@Yu2002] |
+| Phenyl hydrazine | MAO-B | Obesity | Zucker rat | Reduction of weight gain | [@Carpéné2019] |
+| SCZ | LO | Embolic stroke | Sprague-Dawley rats, LDLr-/- mice | Reduction of the infarct volume. Decreased macrophages/increased SMC in established lesions with/without lipid lowering. | [@Hernandez-Guillamon2010; @Ma2011; @Peng2016; @Yang2011; @Zhang2016] |
+|  |  | MI | Sprague-Dawley rats | Reduced infarction sizes | [@Yang2011] |
+|  |  | ICH | CD1 mice | Improved neurological scores | [@Ma2011] |
+| LJP-1207 | / | MI | Sprague-Dawley rats | Reduced infarction sizes | [@Yang2011] |
+| Hydralazine | MAO-A/B | MI | Sprague-Dawley rats | Reduced infarction sizes | [@Yang2011] |
+| **VAP-1 siRNA** |  | ICH | CD1 mice | Improved neurological scores | [@Ma2011] |
+
+: Table of inhibitors containing the experimental models they were tested on with key major effects and appropriate references. Table directly incorporated from [@Li2021]
+
+*Note: All above inhibitors, except VAP-1 siRNA, are irreversible inhibitors that bind to the topaquinone (TPQ) cofactor of VAP-1. MAO-A: monoamine oxidase A; MAO-B: monoamine oxidase B; ICH: intracerebral haemorrhage; SAH: subarachnoid haemorrhage; MI: myocardial infarction; DAO: diamine oxidase; LO: Lysyl oxidase; SCZ: Semi carbazide.*
+
+Two sides of SSAO action in adipocytes
+
+1.  Studies have shown that benzylamine administration promoted a higher SSAO activity in diabetic, obese and high fat diet fed mice and rabbits and increases glucose uptake and prevents lipolysis caused by an insulin mimicking action by the deamination activity of SSAO. This caused an improvement in glucose tolerance due to insulin mimetic action by benzylamine oxidation [@Iglesias-Osma2004; @Zorzano2003].
+2.  The inhibition of the same deamination activity of SSAO has been demonstrated to reduce fat deposition, increase weight loss, and limit food composition. The study that reported this used semi carbazide, administered in oral form as the SSAO inhibitor to both obese and non-obese groups [@Mercader2011].
+
+Thus, investigating the inhibitory properties novel compounds on SSAO can prove to be effective in developing a pharmacologic agent for the management of obesity. Since the inhibition of SSAO on non-obese animal models prevents weight gain, any everyday consumption agent with SSAO inhibition property with higher safety profile can be used as prophylactic leading to a healthy weight and metabolic profile.

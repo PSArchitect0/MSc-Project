@@ -1,0 +1,36 @@
+project:
+  type: book
+
+
+book:
+  title: "Research Project on SSAO Extraction and Enzyme Kinetics"
+  author: "Prasaath Sastha Kuppan Ravi"
+  cover-image: cover.png
+  page-footer: 
+    left: Research project by Prasaath Sastha Kuppan Ravi
+    right: This book was built with <a href="https://quarto.org/">Quarto</a>.         
+  favicon: cover.jpg
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - aims_and_objective.qmd
+    - materials_and_methods.qmd
+    - results.qmd
+    - discussion.qmd
+    - Limitations and future directions.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    css: styles.css
+    theme: cosmo
+  pdf: default
+  
+author-meta: "Prasaath Sastha Kuppan Ravi"
+callout-appearance: simple
+
+editor: visual
+
