@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Prasaath Sastha Kuppan Ravi">
+
+<title>5&nbsp; Discussion – Research Project on SSAO Extraction and Enzyme Kinetics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Limitations and future directions.html" rel="next">
+<link href="./results.html" rel="prev">
+<link href="./logo.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./discussion.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Discussion</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Research Project on SSAO Extraction and Enzyme Kinetics</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/PSArchitect0/MSc-Project/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./aims_and_objective.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aim and Objectives</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./materials_and_methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Materials and Methods</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./results.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Results</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./discussion.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Discussion</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Limitations and future directions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Limitations and future works</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Discussion</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>SSAO has been studied in various cells and tissue groups that include smooth muscle cells, intestinal tissue, heart, lungs, white adipose tissue, brown adipose tissue, kidney, retina and placenta in models such as mice, rats, and rabbits <span class="citation" data-cites="Abella2003 BARRAND1984 Barrant1984 Iglesias-Osma2004 Li2019 Manasieva2022 Manasieva2023 Wang2018">(<a href="references.html#ref-Abella2003" role="doc-biblioref">Abella et al. 2003</a>; <a href="references.html#ref-BARRAND1984" role="doc-biblioref">BARRAND, FOX, and CALLINGHAM 1984</a>; <a href="references.html#ref-Barrant1984" role="doc-biblioref">Barrant and Callingham 1984</a>; <a href="references.html#ref-Iglesias-Osma2004" role="doc-biblioref">Iglesias-Osma et al. 2004</a>; <a href="references.html#ref-Li2019" role="doc-biblioref">Li et al. 2019</a>; <a href="references.html#ref-Manasieva2022" role="doc-biblioref">Manasieva et al. 2022</a>, <a href="references.html#ref-Manasieva2023" role="doc-biblioref">2023</a>; <a href="references.html#ref-Wang2018" role="doc-biblioref">Wang et al. 2018</a>)</span>. SSAO has been detected in various tissue types in the human body as it is widely distributed in the form of serum SSAO/VAP-1 or membrane bound SSAO <span class="citation" data-cites="Dunkel2008">(<a href="references.html#ref-Dunkel2008" role="doc-biblioref">Dunkel et al. 2008</a>)</span>.</p>
+<p>Membrane bound SSAO are found in adipose tissues, and vascular smooth muscle endothelial cells in rats, mice and humans. Brown adipose tissues were chosen to be the source of SSAO for this project to support effective use of tissues extracted from rats. A major challenge in extracting proteins and enzymes from adipose tissues is the higher concentration of lipids. Hence methods that propose to remove the fat from adipose tissues were identified and modified to fit the objectives of the experiments. The key steps used to successfully extract SSAO were, defatting the tissues with ethanol and dissolving the proteins in PBS with a pH of 8.0.</p>
+<p>Method A involved rehydrating the tissues using a freeze-dryer. Dehydrating prior to defatting the tissues were ideal as the water present in the tissues is miscible with ethanol, this can lead to loss of proteins while defatting the tissues.</p>
+<p>BCA and Bradford results for protein concentrations obtained by each method were compared to identify a suitable method with highest quantity of proteins. Experiment 1 of method B produced a 6.5 mg protein/ml by BCA assay. Protein concentration estimated by BCA was considered for downstream calculations as BCA is relatively more sensitive than Bradford <span class="citation" data-cites="Noble2009">(<a href="references.html#ref-Noble2009" role="doc-biblioref">Noble and Bailey 2009</a>)</span>. An advantage with BCA is that it possesses a higher tolerance for interfering species <span class="citation" data-cites="Noble2009">(<a href="references.html#ref-Noble2009" role="doc-biblioref">Noble and Bailey 2009</a>)</span>.</p>
+<p>Method A was not repeated due to freeze dryer unavailability for dehydration. Hence only one independent experiment was performed by method A. Method A also produced a more efficient fat removal with 57.3% loss in weight owing to fat and water. Method B and C were not dehydrated before defatting, which is the potential cause for a lower fat loss percentage with 38.7% and 28.7% respectively. PBS with pH 8.0 was used to dissolve the proteins as SSAO is highly stable at an optimum pH of 8.0 and the water in the buffer dissolves the proteins present in the tissue <span class="citation" data-cites="Stevanato2011">(<a href="references.html#ref-Stevanato2011" role="doc-biblioref">Stevanato et al. 2011</a>)</span>. While the samples were treated with PBS, a lower temperature was maintained to prevent loss of protein activity.&nbsp; Method C involved using a tissue homogeniser, which is prone to generate heat when grinding the tissue. Hence, the homogenisation setup was modified to hold the tissues in an ice bath while homogenising at lower speeds. The tissues were homogenised with PBS instead of a lysis buffer like RIPA to keep the buffer uniform across all methods. The RIPA buffer contains higher concentrations of surfactants which can potentially hinder assays such as Bradford <span class="citation" data-cites="Noble2009">(<a href="references.html#ref-Noble2009" role="doc-biblioref">Noble and Bailey 2009</a>)</span>. The average estimated protein concentration of the extract obtained from method C was 5.43 mg/ml and 5.27 mg/ml by Bradford and BCA assays respectively. The extract obtained by method C had no significant SSAO activity with 0.016554 µmol H<sub>2</sub>O<sub>2</sub> /mg protein. In contrast, extracts obtained in experiment 1 by methods A and B produced 2.018 and 1.641 µmol H<sub>2</sub>O<sub>2</sub>/mg protein SSAO levels respectively. Method B was chosen to perform further enzyme kinetic experiments. The SSAO activities measured by Amplex <sup>®</sup> red are corrected to per mg protein levels calculated from BCA. After the preliminary results from experiment 1, two more independent experiments were performed by method B and method C. The protein concentration estimates by Bradford and BCA assays were closer to results from experiment 1. This was also the case for SSAO level measurements in extracts from methods B and C. Since extracts obtained by method C did not have viable SSAO activity, the extract obtained from method B was used for further analysis. In comparing the quantity of proteins extracted by other methods (Bioprotocol, CST, and RELi) with method A, method B and method C, the protocols from the literature show significantly higher quantities than the methods used in this project <a href="#fig-protein_extraction_comparision" class="quarto-xref">Figure&nbsp;<span>5.1</span></a>. The protocols from the literature use Mice BAT for extracting proteins. Hence to provide a fair comparison in protocols, samples from the same animal needs to be used.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>comp_table <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Replicate =</span> <span class="fu">fct</span>(<span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>)),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">Bioprotocol =</span> <span class="fu">c</span>(<span class="fl">0.04115</span>, <span class="fl">0.0431</span>, <span class="fl">0.0374</span>, <span class="fl">0.04</span>),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">CST =</span> <span class="fu">c</span>(<span class="fl">0.04892</span>, <span class="fl">0.08024</span>, <span class="fl">0.068</span>, <span class="cn">NA</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">RELi =</span> <span class="fu">c</span>(<span class="fl">0.054944</span>, <span class="fl">0.037152</span>, <span class="fl">0.034784</span>, <span class="cn">NA</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">Method_A =</span> <span class="fu">c</span>(<span class="fl">0.004167</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">Method_B =</span> <span class="fu">c</span>(<span class="fl">0.006743</span>, <span class="fl">0.006328</span>, <span class="fl">0.006432</span>, <span class="cn">NA</span>),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">Method_C =</span> <span class="fu">c</span>(<span class="fl">0.005268</span>, <span class="fl">0.004878</span>, <span class="fl">0.005756</span>, <span class="cn">NA</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>       )</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>comp_table <span class="sc">|&gt;</span> </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="sc">!</span>Replicate,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"Protocol"</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"Protein_Estimate"</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> <span class="fu">group_by</span>(Protocol) <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(Protein_Estimate, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(Protocol, <span class="fu">desc</span>(mean)), </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> mean, <span class="at">fill =</span> Protocol))<span class="sc">+</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>           <span class="at">na.rm =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>           <span class="at">orientation =</span> <span class="st">"x"</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>           <span class="at">show.legend =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(mean, <span class="dv">4</span>)),</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.9</span>),</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Average Protein Conc. </span><span class="sc">\n</span><span class="st"> (mg/ml/mg BAT/ml Buffer)"</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-protein_extraction_comparision" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-protein_extraction_comparision-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="discussion_files/figure-html/fig-protein_extraction_comparision-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-protein_extraction_comparision-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.1: Comparison of protein extracted by different methods in literature with methods used in this study. The protein concentration measured by BCA is plotted in mg/ml/mg BAT/ml buffer used (An &amp; Scherer, 2020; Diaz Marin et al., 2019).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-tbl-cap-location="bottom">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(comp_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div id="tbl-protein_comparision" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-cap-location="bottom">
+<figure class="quarto-float quarto-float-tbl figure">
+<div aria-describedby="tbl-protein_comparision-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 18%">
+<col style="width: 12%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Replicate</th>
+<th style="text-align: right;">Bioprotocol</th>
+<th style="text-align: right;">CST</th>
+<th style="text-align: right;">RELi</th>
+<th style="text-align: right;">Method_A</th>
+<th style="text-align: right;">Method_B</th>
+<th style="text-align: right;">Method_C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">0.04115</td>
+<td style="text-align: right;">0.04892</td>
+<td style="text-align: right;">0.054944</td>
+<td style="text-align: right;">0.004167</td>
+<td style="text-align: right;">0.006743</td>
+<td style="text-align: right;">0.005268</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">0.04310</td>
+<td style="text-align: right;">0.08024</td>
+<td style="text-align: right;">0.037152</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">0.006328</td>
+<td style="text-align: right;">0.004878</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">0.03740</td>
+<td style="text-align: right;">0.06800</td>
+<td style="text-align: right;">0.034784</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">0.006432</td>
+<td style="text-align: right;">0.005756</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">0.04000</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-protein_comparision-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5.1: A comparision of the amount of protein (mg/ml/mg BAT/ml) extracted from BAT by different methods in the literature and the methods used in this project
+</figcaption>
+</figure>
+</div>
+</div>
+<p>Since there are no published methods for extracting SSAO from brown adipose tissues in rats, the results of this study cannot be compared to estimate correlations.</p>
+<p>Comparative analysis using parametric or non-parametric tests was not performed due to the limited number of experiments. Performing statistical tests with such a small sample size would likely increase the margin of error and reduce the confidence in the results. Therefore, the findings were only tabulated and plotted to clearly present the outcomes obtained in this study.</p>
+<p><strong>SSAO Kinetics:</strong></p>
+<p>The Km values for benzylamine as a substrate for SSAO extracted from various species have been reported in the literature <span class="citation" data-cites="Yraola2007">(<a href="references.html#ref-Yraola2007" role="doc-biblioref">Yraola et al. 2007</a>)</span>. Since this study uses rats - <em>Rattus Norvegicus</em> as the source of SSAO, the results obtained are compared with Km values estimated from same species of sample source. A study by Yraola et al has reported a Km value of 0.0127 mM for benzylamine as a substrate for SSAO obtained from rats <span class="citation" data-cites="Yraola2007">(<a href="references.html#ref-Yraola2007" role="doc-biblioref">Yraola et al. 2007</a>)</span>. This correlates with the <strong>Km value of 0.03193 mM</strong> obtained from this study for benzylamine as a substrate of SSAO obtained from rat brown adipose tissue <span class="citation" data-cites="Yraola2007">(<a href="references.html#ref-Yraola2007" role="doc-biblioref">Yraola et al. 2007</a>)</span>. Moreover, the same brown adipose tissue was used by both the studies to extract the SSAO enzyme.</p>
+<p>Ki values for Caffeine or Simvastatin have not been reported on brown adipose tissue SSAO obtained from <em>Rattus Norvegicus.</em> This study is the first to report the Ki values from caffeine and simvastatin on SSAO obtained from rats. However, a study by Sun P et al., has reported that simvastatin has reduced the release of membrane bound SSAO into circulation and thus preventing leukocyte adhesion and OGD mediated increase in vascular permeability <span class="citation" data-cites="Sun2018">(<a href="references.html#ref-Sun2018" role="doc-biblioref">Sun et al. 2018</a>)</span>. This study by Sun et al., measures the levels of SSAO by western blotting and does not provide a Ki value for simvastatin. A study by Che et al., reported that administration of caffeine to male Wistar rats caused a reduction in SSAO quantities due to accumulation of caffeine <span class="citation" data-cites="Che2012">(<a href="references.html#ref-Che2012" role="doc-biblioref">Che et al. 2012</a>)</span>. But no Ki values have been reported in the literature. <strong>The Ki values obtained from this project are 2.145 and 6.768 mM for simvastatin and caffeine respectively.</strong> The Ki values obtained are outside the inhibitor concentration range used to calculate them, indicating a need to repeat the inhibition experiments with updated concentrations that reflect the current Ki values. The fact that these Ki values fall within the millimolar range suggests that both compounds are not potent inhibitors of SSAO.</p>
+<p>However, it’s important to note that these results are based on a single independent experiment. Additionally, this study did not use inhibitors with known Ki values as controls, which limits the ability to accurately compare the inhibition effects of different compounds. Future research should focus on addressing these limitations to improve accuracy and reduce errors, leading to more reliable results.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Abella2003" class="csl-entry" role="listitem">
+Abella, Anna, Luc Marti, Marta Camps, Marc Claret, J. Fernández-Alvarez, Ramon Gomis, Anna Gumà, et al. 2003. <span>“Semicarbazide-Sensitive Amine Oxidase/Vascular Adhesion Protein-1 Activity Exerts an Antidiabetic Action in Goto-Kakizaki Rats.”</span> <em>Diabetes</em> 52 (April): 1004–13. <a href="https://doi.org/10.2337/DIABETES.52.4.1004">https://doi.org/10.2337/DIABETES.52.4.1004</a>.
+</div>
+<div id="ref-BARRAND1984" class="csl-entry" role="listitem">
+BARRAND, MARGERY A., SHEILA A. FOX, and BRIAN A. CALLINGHAM. 1984. <span>“Amine Oxidase Activities in Brown Adipose Tissue of the Rat: Identification of Semicarbazide‐sensitive (Clorgyline‐resistant) Activity at the Fat Cell Membrane.”</span> <em>Journal of Pharmacy and Pharmacology</em> 36: 652–58. <a href="https://doi.org/10.1111/j.2042-7158.1984.tb04837.x">https://doi.org/10.1111/j.2042-7158.1984.tb04837.x</a>.
+</div>
+<div id="ref-Barrant1984" class="csl-entry" role="listitem">
+Barrant, M. A., and B. A. Callingham. 1984. <span>“Solubilization and Some Properties of a Semicarbazide-Sensitive Amine Oxidase in Brown Adipose Tissue of the Rat.”</span> <em>The Biochemical Journal</em> 222: 467–75. <a href="https://doi.org/10.1042/BJ2220467">https://doi.org/10.1042/BJ2220467</a>.
+</div>
+<div id="ref-Che2012" class="csl-entry" role="listitem">
+Che, Baoquan, Lin Wang, Zhe Zhang, Yongqian Zhang, and Yulin Deng. 2012. <span>“Distribution and Accumulation of Caffeine in Rat Tissues and Its Inhibition on Semicarbazide-Sensitive Amine Oxidase.”</span> <em>NeuroToxicology</em> 33 (October): 1248–53. <a href="https://doi.org/10.1016/J.NEURO.2012.07.004">https://doi.org/10.1016/J.NEURO.2012.07.004</a>.
+</div>
+<div id="ref-Dunkel2008" class="csl-entry" role="listitem">
+Dunkel, P., A. Gelain, D. Barlocco, N. Haider, K. Gyires, B. Sperlagh, K. Magyar, E. Maccioni, A. Fadda, and P. Matyus. 2008. <span>“Semicarbazide-Sensitive Amine Oxidase/Vascular Adhesion Protein 1: Recent Developments Concerning Substrates and Inhibitors of a Promising Therapeutic Target.”</span> <em>Current Medicinal Chemistry</em> 15 (July): 1827–39. <a href="https://doi.org/10.2174/092986708785133022">https://doi.org/10.2174/092986708785133022</a>.
+</div>
+<div id="ref-Iglesias-Osma2004" class="csl-entry" role="listitem">
+Iglesias-Osma, María Carmen, Maria José Garcia-Barrado, Virgile Visentin, Maria Francisca Pastor-Mansilla, Sandy Bour, Daníelle Prévot, Philippe Valet, Julio Moratinos, and Christian Carpéné. 2004. <span>“Benzylamine Exhibits Insulin-Like Effects on Glucose Disposal, Glucose Transport, and Fat Cell Lipolysis in Rabbits and Diabetic Mice.”</span> <em>The Journal of Pharmacology and Experimental Therapeutics</em> 309 (June): 1020–28. <a href="https://doi.org/10.1124/JPET.103.063636">https://doi.org/10.1124/JPET.103.063636</a>.
+</div>
+<div id="ref-Li2019" class="csl-entry" role="listitem">
+Li, Chaosheng, Zhenhua Wang, Xiaoli Li, and Jun Chen. 2019. <span>“Effects of Semicarbazide-Sensitive Amine Oxidase Inhibitors on Morphology of Aorta and Kidney in Diabetic Rats.”</span> <em>BMC Endocrine Disorders</em> 19 (June). <a href="https://doi.org/10.1186/S12902-019-0392-1">https://doi.org/10.1186/S12902-019-0392-1</a>.
+</div>
+<div id="ref-Manasieva2023" class="csl-entry" role="listitem">
+Manasieva, Vesna, Shori Thakur, Lisa A. Lione, Anwar R. Baydoun, and John Skamarauskas. 2023. <span>“The Impact of Semicarbazide Sensitive Amine Oxidase Activity on Rat Aortic Vascular Smooth Muscle Cells.”</span> <em>International Journal of Molecular Sciences 2023, Vol. 24, Page 4946</em> 24 (March): 4946. <a href="https://doi.org/10.3390/IJMS24054946">https://doi.org/10.3390/IJMS24054946</a>.
+</div>
+<div id="ref-Manasieva2022" class="csl-entry" role="listitem">
+Manasieva, Vesna, Shori Thakur, Lisa A. Lione, Jessal Patel, Anwar Baydoun, and John Skamarauskas. 2022. <span>“Semicarbazide-Sensitive Amine Oxidase (SSAO) and Lysyl Oxidase (LOX) Association in Rat Aortic Vascular Smooth Muscle Cells.”</span> <em>Biomolecules</em> 12 (November). <a href="https://doi.org/10.3390/BIOM12111563">https://doi.org/10.3390/BIOM12111563</a>.
+</div>
+<div id="ref-Noble2009" class="csl-entry" role="listitem">
+Noble, James E., and Marc J. A. Bailey. 2009. <span>“Chapter 8 Quantitation of Protein.”</span> <em>Methods in Enzymology</em> 463 (January): 73–95. <a href="https://doi.org/10.1016/S0076-6879(09)63008-1">https://doi.org/10.1016/S0076-6879(09)63008-1</a>.
+</div>
+<div id="ref-Stevanato2011" class="csl-entry" role="listitem">
+Stevanato, Roberto, Sara Cardillo, Michele Braga, Angela De Iuliis, Valentina Battaglia, Antonio Toninello, Enzo Agostinelli, and Fabio Vianello. 2011. <span>“Preliminary Kinetic Characterization of a Copper Amine Oxidase from Rat Liver Mitochondria Matrix.”</span> <em>Amino Acids</em> 40: 713–20. <a href="https://doi.org/10.1007/S00726-010-0708-Y">https://doi.org/10.1007/S00726-010-0708-Y</a>.
+</div>
+<div id="ref-Sun2018" class="csl-entry" role="listitem">
+Sun, Ping, Mar Hernandez-Guillamón, Mireia Campos-Martorell, Alba Simats, Joan Montaner, Mercedes Unzeta, and Montse Solé. 2018. <span>“Simvastatin Blocks Soluble SSAO/VAP-1 Release in Experimental Models of Cerebral Ischemia: Possible Benefits for Stroke-Induced Inflammation Control.”</span> <em>Biochimica Et Biophysica Acta. Molecular Basis of Disease</em> 1864 (February): 542–53. <a href="https://doi.org/10.1016/J.BBADIS.2017.11.014">https://doi.org/10.1016/J.BBADIS.2017.11.014</a>.
+</div>
+<div id="ref-Wang2018" class="csl-entry" role="listitem">
+Wang, Shu Huei, Tse Ya Yu, Feng Chiao Tsai, Chris J. Weston, Mao Shin Lin, Chi Sheng Hung, Hsien Li Kao, et al. 2018. <span>“Inhibition of Semicarbazide-Sensitive Amine Oxidase Reduces Atherosclerosis in Apolipoprotein e-Deficient Mice.”</span> <em>Translational Research</em> 197 (July): 12–31. <a href="https://doi.org/10.1016/j.trsl.2018.03.001">https://doi.org/10.1016/j.trsl.2018.03.001</a>.
+</div>
+<div id="ref-Yraola2007" class="csl-entry" role="listitem">
+Yraola, Francesc, Silvia García-Vicente, Luc Marti, Fernando Albericio, Antonio Zorzano, and Miriam Royo. 2007. <span>“Understanding the Mechanism of Action of the Novel SSAO Substrate (C7NH10)6(V10O28)·2H2O, a Prodrug of Peroxovanadate Insulin Mimetics.”</span> <em>Chemical Biology &amp; Drug Design</em> 69 (June): 423–28. <a href="https://doi.org/10.1111/J.1747-0285.2007.00516.X">https://doi.org/10.1111/J.1747-0285.2007.00516.X</a>.
+</div>
+</div>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/prasaath\.quarto\.pub\/msc-research-project\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./results.html" class="pagination-link" aria-label="Results">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Results</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Limitations and future directions.html" class="pagination-link" aria-label="Limitations and future works">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Limitations and future works</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Research project by Prasaath Sastha Kuppan Ravi</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

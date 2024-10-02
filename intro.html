@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Prasaath Sastha Kuppan Ravi">
+
+<title>1&nbsp; Introduction – Research Project on SSAO Extraction and Enzyme Kinetics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./aims_and_objective.html" rel="next">
+<link href="./index.html" rel="prev">
+<link href="./logo.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Research Project on SSAO Extraction and Enzyme Kinetics</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/PSArchitect0/MSc-Project/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./aims_and_objective.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aim and Objectives</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./materials_and_methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Materials and Methods</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./results.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Results</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./discussion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Discussion</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Limitations and future directions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Limitations and future works</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#amine-oxidases-and-substrates" id="toc-amine-oxidases-and-substrates" class="nav-link active" data-scroll-target="#amine-oxidases-and-substrates"><span class="header-section-number">1.1</span> <strong>Amine Oxidases and substrates</strong></a></li>
+  <li><a href="#ssaovap1-physiology-and-pathophysiology" id="toc-ssaovap1-physiology-and-pathophysiology" class="nav-link" data-scroll-target="#ssaovap1-physiology-and-pathophysiology"><span class="header-section-number">1.2</span> <strong>SSAO/VAP1 Physiology and Pathophysiology</strong></a></li>
+  <li><a href="#ssao-in-metabolic-disorders" id="toc-ssao-in-metabolic-disorders" class="nav-link" data-scroll-target="#ssao-in-metabolic-disorders"><span class="header-section-number">1.3</span> <strong>SSAO in metabolic disorders</strong></a></li>
+  <li><a href="#adipose-tissue" id="toc-adipose-tissue" class="nav-link" data-scroll-target="#adipose-tissue"><span class="header-section-number">1.4</span> <strong>Adipose Tissue</strong></a></li>
+  <li><a href="#caffeine-and-simvastatin" id="toc-caffeine-and-simvastatin" class="nav-link" data-scroll-target="#caffeine-and-simvastatin"><span class="header-section-number">1.5</span> <strong>Caffeine and Simvastatin</strong></a></li>
+  <li><a href="#ssaovap-1-inhibitors" id="toc-ssaovap-1-inhibitors" class="nav-link" data-scroll-target="#ssaovap-1-inhibitors"><span class="header-section-number">1.6</span> <strong>SSAO/VAP-1 Inhibitors</strong></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="amine-oxidases-and-substrates" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="amine-oxidases-and-substrates"><span class="header-section-number">1.1</span> <strong>Amine Oxidases and substrates</strong></h2>
+<p>Amine oxidases are a common group of copper containing enzymes highly expressed in smooth muscle cells, vascular endothelial cells and adipocytes in humans and rats <span class="citation" data-cites="Manasieva2022 Salmi2000 Salmi1992">(<a href="references.html#ref-Manasieva2022" role="doc-biblioref">Manasieva et al. 2022</a>; <a href="references.html#ref-Salmi2000" role="doc-biblioref">Salmi, Tohka, and Jalkanen 2000</a>; <a href="references.html#ref-Salmi1992" role="doc-biblioref">Salmi and Jalkanen 1992</a>)</span>. The key enzymatic function of these proteins is oxidating primary amines into aldehydes . This also results in formation of byproducts such as ammonium (NH<sub>4</sub><sup>+</sup>) and hydrogen peroxide(H<sub>2</sub>O<sub>2</sub>) in a two-step reaction <a href="#fig-Deamination_of_primaryamine_SSAO" class="quarto-xref">Figure&nbsp;<span>1.1</span></a> . <span class="citation" data-cites="Salmi2019">(<a href="references.html#ref-Salmi2019" role="doc-biblioref">Salmi and Jalkanen 2019</a>)</span></p>
+<div id="fig-Deamination_of_primaryamine_SSAO" class="fig quarto-float quarto-figure quarto-figure-center anchored" data-fig-env="fig">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Deamination_of_primaryamine_SSAO-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/clipboard-4135545146.png" title="fig" class="fig img-fluid figure-img" data-fig-env="fig" width="277">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Deamination_of_primaryamine_SSAO-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.1: Deamination of a primary amine by SSAO to form an aldehyde, ammonium, and hydrogen peroxide in a 2-step reaction.
+</figcaption>
+</figure>
+</div>
+<p>Semi carbazide sensitive amine oxidase (SSAO) also known as the vascular adhesion protein belongs to this class of enzymes and are primarily present on the epithelial cell membranes of the vascular surfaces. Some of the known forms of SSAO enzymes in humans are AOC1, AOC2, and AOC3. AOC1 is involved in regulating histaminase, whereas AOC2 and AOC3 (VAP-1) catalyse various monoamines. AOC2 has a large substrate channel compared to the AOC3. The preferred substrates for AOC2 are ethylamine, tyramine, and p-tyramine, whereas AOC3 or VAP 1 prefers methylamine <span class="citation" data-cites="Salmi2019">(<a href="references.html#ref-Salmi2019" role="doc-biblioref">Salmi and Jalkanen 2019</a>)</span>. Benzylamine is a xenobiotic substrate of AOC-3 or VAP1 and is more commonly used in invitro studies of SSAO kinetics and VAP 1 contributes to approximately 90% of cellular SSAO activity in mammals <span class="citation" data-cites="Salmi2019">(<a href="references.html#ref-Salmi2019" role="doc-biblioref">Salmi and Jalkanen 2019</a>)</span> . Other synthetic substrates such as aminoacetone, allylamine, and methylamine are also used in invitro experiments <span class="citation" data-cites="Iglesias-Osma2005 Lyles1995 Manasieva2023 Manasieva2022">(<a href="references.html#ref-Iglesias-Osma2005" role="doc-biblioref">Maria Carmen Iglesias-Osma et al. 2005</a>; <a href="references.html#ref-Lyles1995" role="doc-biblioref">Lyles 1995</a>; <a href="references.html#ref-Manasieva2023" role="doc-biblioref">Manasieva et al. 2023</a>, <a href="references.html#ref-Manasieva2022" role="doc-biblioref">2022</a>)</span>. This project studies the activity of SSAO using benzylamine as the only substrate as it is specific to SSAO and no other mono amine oxidases (MAO).</p>
+</section>
+<section id="ssaovap1-physiology-and-pathophysiology" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="ssaovap1-physiology-and-pathophysiology"><span class="header-section-number">1.2</span> <strong>SSAO/VAP1 Physiology and Pathophysiology</strong></h2>
+<p>The primary role of SSAO as an enzyme is catalysing primary amines that are present in the circulation into aldehydes and hydrogen peroxide. However, their expression and activity has been found to be upregulated by inflammatory and immune mediators such as IL-1, TNF-α, and other lipopolysaccharides in an organ culture study using human tonsillar tissue <span class="citation" data-cites="Arvilommi1997">(<a href="references.html#ref-Arvilommi1997" role="doc-biblioref">Arvilommi, Salmi, and Jalkanen 1997</a>)</span>. The study also reported that there is no significant difference in the characteristics of VAP-1 induced by inflammatory mediators and the naturally occurring VAP-1. Studies have also shown that VAP-1 directly regulates lymphocytes / leukocytes rolling under a defined laminar shear supporting the lymphocyte extravasation process <span class="citation" data-cites="Salmi2000">(<a href="references.html#ref-Salmi2000" role="doc-biblioref">Salmi, Tohka, and Jalkanen 2000</a>)</span>. This increases the understanding on VAP-1 expression and the outcomes of its enzymatic activity on physiology and pathophysiology. The resulting products of SSAO activity are aldehydes and hydrogen peroxides which are implicated in development of various pathologic complications that include atherosclerosis, diabetes, and obesity <span class="citation" data-cites="Murata2017 Wang2018">(<a href="references.html#ref-Murata2017" role="doc-biblioref">Murata et al. 2017</a>; <a href="references.html#ref-Wang2018" role="doc-biblioref">Wang et al. 2018</a>)</span>. The extravasation cascade of leukocytes influenced by VAP-1 is defined as a key point in development of various pathologies such as Fibrosis, inflammation, ischemia reperfusion injury, and even cancer <span class="citation" data-cites="Salmi2000">(<a href="references.html#ref-Salmi2000" role="doc-biblioref">Salmi, Tohka, and Jalkanen 2000</a>)</span>. Most of these effects were studied by blocking the activity of VAP-1 using SSAO inhibitors <span class="citation" data-cites="Danielli2022 Li2021 Wang2018">(<a href="references.html#ref-Danielli2022" role="doc-biblioref">Danielli et al. 2022</a>; <a href="references.html#ref-Li2021" role="doc-biblioref">Li et al. 2021</a>; <a href="references.html#ref-Wang2018" role="doc-biblioref">Wang et al. 2018</a>)</span>. VAP-1 is also found in circulation / serum with almost the same characteristics of the transmembrane bound VAP-1. Studies have reported that the levels of serum VAP-1 is increased with pathologies such as colorectal cancer, chronic liver disease, gastric cancer, inflammation, smoking, and aging <span class="citation" data-cites="Kurkijarvi2000 Pannecoeck2015 Toiyama2009 Yasuda2011">(<a href="references.html#ref-Kurkijarvi2000" role="doc-biblioref">Kurkijarvi et al. 2000</a>; <a href="references.html#ref-Pannecoeck2015" role="doc-biblioref">Pannecoeck et al. 2015</a>; <a href="references.html#ref-Toiyama2009" role="doc-biblioref">Toiyama et al. 2009</a>; <a href="references.html#ref-Yasuda2011" role="doc-biblioref">Yasuda et al. 2011</a>)</span>.</p>
+</section>
+<section id="ssao-in-metabolic-disorders" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="ssao-in-metabolic-disorders"><span class="header-section-number">1.3</span> <strong>SSAO in metabolic disorders</strong></h2>
+<p>Recent trends in metabolic health have shown that obesity, diabetes, and cardiovascular diseases are the leading causes of morbidity and loss of quality of life <span class="citation" data-cites="Chew2023">(<a href="references.html#ref-Chew2023" role="doc-biblioref">Chew et al. 2023</a>)</span>. This makes it one of the growing health concerns for every major health care organisation and insurance companies.</p>
+<div id="fig-DALY" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-DALY-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/clipboard-444669600.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-DALY-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.2: Global burden of metabolic diseases portraying various factors that lead to metabolic diseases causing increase in morbidity and disability adjusted life years (DALYs)
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-DALY" class="quarto-xref">Figure&nbsp;<span>1.2</span></a> provides a comprehensive overview of the several factors leading to fatal metabolic disorders such as obesity, hyperlipidemia, non-alcoholic fatty liver disease (NAFLD), type 2 diabetes mellitus, and hypertension.</p>
+<p>Circulating SSAO is implicated in the pathogenesis of metabolic disorders such as obesity, atherosclerosis, and diabetes mellitus by promoting weight gain by producing an insulin like action <span class="citation" data-cites="Zorzano2003">(<a href="references.html#ref-Zorzano2003" role="doc-biblioref">Zorzano et al. 2003</a>)</span>. Higher levels of SSAO in humans have been reported in various metabolic and cardiovascular conditions like stroke, myocardial infarction, atherosclerosis, diabetes, and obesity <span class="citation" data-cites="Boomsma2000 Bour2009 Sun2018 Unzeta2021">(<a href="references.html#ref-Boomsma2000" role="doc-biblioref">Boomsma et al. 2000</a>; <a href="references.html#ref-Bour2009" role="doc-biblioref">Bour et al. 2009</a>; <a href="references.html#ref-Sun2018" role="doc-biblioref">Sun et al. 2018</a>; <a href="references.html#ref-Unzeta2021" role="doc-biblioref">Unzeta et al. 2021</a>)</span>. The list of studies looking at SSAO as a target for management of cardiovascular and metabolic diseases provides conclusive evidence of the role SSAO plays in their pathogenesis <span class="citation" data-cites="Abella2003 Boomsma2000 Jarnicki2016 Obata2006 Papukashvili2020 Schilter2015 Tábi2013 Unzeta2021 Yan2023 Yu1998">(<a href="references.html#ref-Abella2003" role="doc-biblioref">Abella et al. 2003</a>; <a href="references.html#ref-Boomsma2000" role="doc-biblioref">Boomsma et al. 2000</a>; <a href="references.html#ref-Jarnicki2016" role="doc-biblioref">Jarnicki et al. 2016</a>; <a href="references.html#ref-Obata2006" role="doc-biblioref">Obata 2006</a>; <a href="references.html#ref-Papukashvili2020" role="doc-biblioref">Papukashvili, Rcheulishvili, and Deng 2020</a>; <a href="references.html#ref-Schilter2015" role="doc-biblioref">Schilter et al. 2015</a>; <a href="references.html#ref-Tábi2013" role="doc-biblioref">Tábi et al. 2013</a>; <a href="references.html#ref-Unzeta2021" role="doc-biblioref">Unzeta et al. 2021</a>; <a href="references.html#ref-Yan2023" role="doc-biblioref">Yan et al. 2023</a>; <a href="references.html#ref-Yu1998" role="doc-biblioref">P. H. Yu and Deng 1998</a>)</span>.</p>
+</section>
+<section id="adipose-tissue" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="adipose-tissue"><span class="header-section-number">1.4</span> <strong>Adipose Tissue</strong></h2>
+<p>Adipose tissue is an essential part of the mammalian lipid metabolism which is used to store the excess lipids as triglycerides and aiding the body to use them as fatty acids in between meals <span class="citation" data-cites="Börgeson2022">(<a href="references.html#ref-Börgeson2022" role="doc-biblioref">Börgeson, Boucher, and Hagberg 2022</a>)</span>. In metabolic aberrations, the function of the adipose tissues is compromised resulting in excess circulating lipids and fat deposition in peripheral organs leading to metabolic diseases such as diabetes, atherosclerosis, obesity, and fatty liver disease <span class="citation" data-cites="Belligoli2019 Chait2020 Chusyd2016">(<a href="references.html#ref-Belligoli2019" role="doc-biblioref">Belligoli et al. 2019</a>; <a href="references.html#ref-Chait2020" role="doc-biblioref">Chait and Hartigh 2020</a>; <a href="references.html#ref-Chusyd2016" role="doc-biblioref">Chusyd et al. 2016</a>)</span>. White adipose tissue (WAT) and brown adipose tissue (BAT) are the two most common types of adipose tissues present in mammals. White adipose tissue primarily stores the excess lipids and releases when the body needs it. BAT, in addition to storing the excess lipids they are also involved in thermogenesis in mice, rats, and humans <span class="citation" data-cites="Blondin2020">Börgeson, Boucher, and Hagberg (<a href="references.html#ref-Börgeson2022" role="doc-biblioref">2022</a>)</span>.</p>
+<p>The adipose tissues express a wide range of proteins that include amine oxidases such as the SSAOs (BARRAND et al., 1984; Barrant &amp; Callingham, 1984). Both WAT and BAT higher levels of SSAO which plays a key role in activation of glucose transport and prevention of lipolysis in both humans and rodents <span class="citation" data-cites="Zorzano2003">(<a href="references.html#ref-Zorzano2003" role="doc-biblioref">Zorzano et al. 2003</a>)</span>.</p>
+<p>This project is aimed at successfully extracting SSAO from rat brown adipose tissue by a suitable methodology. A major barrier in using adipose tissue is the quantity of lipids present in the adipose tissues. Brown adipose tissue from rats is chosen to be the source of the enzyme for the following reasons.</p>
+<ol type="1">
+<li>Previous studies involving the use of adipose tissue for extraction of proteins have been reported in the literature. These reports also provide the protocol for a successful removal of fat and compares the results of protein extracted from WAT and BAT <span class="citation" data-cites="Marin2019">(<a href="references.html#ref-Marin2019" role="doc-biblioref">Marin et al. 2019</a>)</span>.</li>
+<li>The chosen animal for this project is rat as they are more commonly used at the University of Hertfordshire. Since a wide range of tissues are being used for other experiments, use of adipose tissue from this animal will aid in the three Rs of animal research.</li>
+<li>The quantity of BAT that can be extracted from rats are significantly more than mice.</li>
+</ol>
+</section>
+<section id="caffeine-and-simvastatin" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="caffeine-and-simvastatin"><span class="header-section-number">1.5</span> <strong>Caffeine and Simvastatin</strong></h2>
+<p><strong><em>Caffeine</em></strong> is an aromatic purine alkaloid from the methylxanthine class compounds. Commonly used to increase alertness, concentration, and improve energy levels. Additionally, caffeine is shown to have various other health benefits such as neuroprotective, hepatoprotective, weight loss, and physical performance improvements owing to its antioxidant properties. Caffeine exhibits its antioxidant properties by acting as a scavenger of free radicals and increasing the concentration of endogenous antioxidants such as glutathione (GSH) <span class="citation" data-cites="Reddy2024">(<a href="references.html#ref-Reddy2024" role="doc-biblioref">Reddy et al. 2024</a>)</span>.</p>
+<p>Caffeine has gained some attention as it has been reported to aid in weight loss by stimulating lipolysis, thermogenesis, appetite suppression, and increased metabolic rate. These effects closely match with observations when SSAO is inhibited by known inhibitors in various studies <span class="citation" data-cites="Che2012">(<a href="references.html#ref-Che2012" role="doc-biblioref">Che et al. 2012</a>)</span>. This study aims to determine if caffeine possess a quantifiable inhibitory effect on SSAO.</p>
+<p><strong><em>Simvastatin</em></strong> is one of the common medications prescribed to lower cholesterol levels and used as preventative therapeutic for various cardiovascular and cerebrovascular conditions. A study by Sun et al., reported that simvastatin blocks soluble SSAO/VAP1 release in rabbit animal models of cerebral ischemia. However, this study does not provide a more accurate estimate of in IC50 or the Ki for simvastatin on SSAO but only discusses the reduction in SSAO release into the blood plasma <span class="citation" data-cites="Sun2018">(<a href="references.html#ref-Sun2018" role="doc-biblioref">Sun et al. 2018</a>)</span>.</p>
+<p>Studying the effects of caffeine and simvastatin on SSAO activity paves direction for considering commonly used molecules in par with some of the new chemical entities being studied for their inhibitory properties on SSAO/VAP- 1.</p>
+</section>
+<section id="ssaovap-1-inhibitors" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="ssaovap-1-inhibitors"><span class="header-section-number">1.6</span> <strong>SSAO/VAP-1 Inhibitors</strong></h2>
+<p>Some of the most widely studied compounds with an inhibitory effect on SSAO are small molecules that include hydrazines, benzylamides, vitamin B1 derivatives, oxime based primary amine oxidase inhibitors and peptides <span class="citation" data-cites="Manasieva2022 Pannecoeck2015">(<a href="references.html#ref-Manasieva2022" role="doc-biblioref">Manasieva et al. 2022</a>; <a href="references.html#ref-Pannecoeck2015" role="doc-biblioref">Pannecoeck et al. 2015</a>)</span>.</p>
+<table class="caption-top table">
+<caption>Table of inhibitors containing the experimental models they were tested on with key major effects and appropriate references. Table directly incorporated from <span class="citation" data-cites="Li2021">(<a href="references.html#ref-Li2021" role="doc-biblioref">Li et al. 2021</a>)</span></caption>
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name of SSAO/VAP-1 Inhibitors</th>
+<th>Off Target</th>
+<th>Model</th>
+<th>Species</th>
+<th>Major effects</th>
+<th>References</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Allyl-amines</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>LJP-1586</td>
+<td>MAO-A/B</td>
+<td>ICH, SAH, Atherosclerotic plaque</td>
+<td>CD1 mice, Sprague-Dawley rats, LDLr-/- ApoB100/100 mice</td>
+<td>Improved neurological scores. Improved neurological outcomes.</td>
+<td><span class="citation" data-cites="Ma2011 Silvola2016 Xu2014">(<a href="references.html#ref-Ma2011" role="doc-biblioref">Ma et al. 2011</a>; <a href="references.html#ref-Silvola2016" role="doc-biblioref">Silvola et al. 2016</a>; <a href="references.html#ref-Xu2014" role="doc-biblioref">Xu et al. 2014</a>)</span></td>
+</tr>
+<tr class="odd">
+<td>MDL-72974A</td>
+<td>MAO-B</td>
+<td>Atherosclerosis, Obesity</td>
+<td>KKAy mice</td>
+<td>Reduction of weight gain and atherosclerotic lesions. Reduction of weight gain</td>
+<td><span class="citation" data-cites="Yu2002 Yu2004">(<a href="references.html#ref-Yu2002" role="doc-biblioref">P. Yu et al. 2002</a>; <a href="references.html#ref-Yu2004" role="doc-biblioref">Peter H. Yu et al. 2004</a>)</span></td>
+</tr>
+<tr class="even">
+<td>PXS-4728A</td>
+<td>/</td>
+<td>Atherosclerosis</td>
+<td>New Zealand white rabbits, Apo E-/- mice</td>
+<td>Reduction of weight gain and atherosclerotic plaques. Reduction of atheroma and oxidative stress.</td>
+<td><span class="citation" data-cites="Wang2018">(<a href="references.html#ref-Wang2018" role="doc-biblioref">Wang et al. 2018</a>)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Hydra-zines</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Aminoguanidine</td>
+<td>DAO</td>
+<td>Atherosclerosis</td>
+<td>KKAy mice</td>
+<td>Reduction of weight gain and atherosclerotic lesions.</td>
+<td><span class="citation" data-cites="Yu2002">(<a href="references.html#ref-Yu2002" role="doc-biblioref">P. Yu et al. 2002</a>)</span></td>
+</tr>
+<tr class="odd">
+<td>Phenyl hydrazine</td>
+<td>MAO-B</td>
+<td>Obesity</td>
+<td>Zucker rat</td>
+<td>Reduction of weight gain</td>
+<td><span class="citation" data-cites="Carpéné2019">(<a href="references.html#ref-Carpéné2019" role="doc-biblioref">Carpéné et al. 2019</a>)</span></td>
+</tr>
+<tr class="even">
+<td>SCZ</td>
+<td>LO</td>
+<td>Embolic stroke</td>
+<td>Sprague-Dawley rats, LDLr-/- mice</td>
+<td>Reduction of the infarct volume. Decreased macrophages/increased SMC in established lesions with/without lipid lowering.</td>
+<td><span class="citation" data-cites="Hernandez-Guillamon2010 Ma2011 Peng2016 Yang2011 Zhang2016">(<a href="references.html#ref-Hernandez-Guillamon2010" role="doc-biblioref">Hernandez-Guillamon et al. 2010</a>; <a href="references.html#ref-Ma2011" role="doc-biblioref">Ma et al. 2011</a>; <a href="references.html#ref-Peng2016" role="doc-biblioref">Peng et al. 2016</a>; <a href="references.html#ref-Yang2011" role="doc-biblioref">Yang et al. 2011</a>; <a href="references.html#ref-Zhang2016" role="doc-biblioref">Zhang et al. 2016</a>)</span></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>MI</td>
+<td>Sprague-Dawley rats</td>
+<td>Reduced infarction sizes</td>
+<td><span class="citation" data-cites="Yang2011">(<a href="references.html#ref-Yang2011" role="doc-biblioref">Yang et al. 2011</a>)</span></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>ICH</td>
+<td>CD1 mice</td>
+<td>Improved neurological scores</td>
+<td><span class="citation" data-cites="Ma2011">(<a href="references.html#ref-Ma2011" role="doc-biblioref">Ma et al. 2011</a>)</span></td>
+</tr>
+<tr class="odd">
+<td>LJP-1207</td>
+<td>/</td>
+<td>MI</td>
+<td>Sprague-Dawley rats</td>
+<td>Reduced infarction sizes</td>
+<td><span class="citation" data-cites="Yang2011">(<a href="references.html#ref-Yang2011" role="doc-biblioref">Yang et al. 2011</a>)</span></td>
+</tr>
+<tr class="even">
+<td>Hydralazine</td>
+<td>MAO-A/B</td>
+<td>MI</td>
+<td>Sprague-Dawley rats</td>
+<td>Reduced infarction sizes</td>
+<td><span class="citation" data-cites="Yang2011">(<a href="references.html#ref-Yang2011" role="doc-biblioref">Yang et al. 2011</a>)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>VAP-1 siRNA</strong></td>
+<td></td>
+<td>ICH</td>
+<td>CD1 mice</td>
+<td>Improved neurological scores</td>
+<td><span class="citation" data-cites="Ma2011">(<a href="references.html#ref-Ma2011" role="doc-biblioref">Ma et al. 2011</a>)</span></td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: All above inhibitors, except VAP-1 siRNA, are irreversible inhibitors that bind to the topaquinone (TPQ) cofactor of VAP-1. MAO-A: monoamine oxidase A; MAO-B: monoamine oxidase B; ICH: intracerebral haemorrhage; SAH: subarachnoid haemorrhage; MI: myocardial infarction; DAO: diamine oxidase; LO: Lysyl oxidase; SCZ: Semi carbazide.</em></p>
+<p>Two sides of SSAO action in adipocytes</p>
+<ol type="1">
+<li>Studies have shown that benzylamine administration promoted a higher SSAO activity in diabetic, obese and high fat diet fed mice and rabbits and increases glucose uptake and prevents lipolysis caused by an insulin mimicking action by the deamination activity of SSAO. This caused an improvement in glucose tolerance due to insulin mimetic action by benzylamine oxidation <span class="citation" data-cites="Iglesias-Osma2004 Zorzano2003">(<a href="references.html#ref-Iglesias-Osma2004" role="doc-biblioref">María Carmen Iglesias-Osma et al. 2004</a>; <a href="references.html#ref-Zorzano2003" role="doc-biblioref">Zorzano et al. 2003</a>)</span>.</li>
+<li>The inhibition of the same deamination activity of SSAO has been demonstrated to reduce fat deposition, increase weight loss, and limit food composition. The study that reported this used semi carbazide, administered in oral form as the SSAO inhibitor to both obese and non-obese groups <span class="citation" data-cites="Mercader2011">(<a href="references.html#ref-Mercader2011" role="doc-biblioref">Mercader et al. 2011</a>)</span>.</li>
+</ol>
+<p>Thus, investigating the inhibitory properties novel compounds on SSAO can prove to be effective in developing a pharmacologic agent for the management of obesity. Since the inhibition of SSAO on non-obese animal models prevents weight gain, any everyday consumption agent with SSAO inhibition property with higher safety profile can be used as prophylactic leading to a healthy weight and metabolic profile.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Abella2003" class="csl-entry" role="listitem">
+Abella, Anna, Luc Marti, Marta Camps, Marc Claret, J. Fernández-Alvarez, Ramon Gomis, Anna Gumà, et al. 2003. <span>“Semicarbazide-Sensitive Amine Oxidase/Vascular Adhesion Protein-1 Activity Exerts an Antidiabetic Action in Goto-Kakizaki Rats.”</span> <em>Diabetes</em> 52 (April): 1004–13. <a href="https://doi.org/10.2337/DIABETES.52.4.1004">https://doi.org/10.2337/DIABETES.52.4.1004</a>.
+</div>
+<div id="ref-Arvilommi1997" class="csl-entry" role="listitem">
+Arvilommi, Anna Maija, Marko Salmi, and Sirpa Jalkanen. 1997. <span>“Organ-Selective Regulation of Vascular Adhesion Protein-1 Expression in Man.”</span> <em>European Journal of Immunology</em> 27 (July): 1794–1800. <a href="https://doi.org/10.1002/EJI.1830270730">https://doi.org/10.1002/EJI.1830270730</a>.
+</div>
+<div id="ref-Belligoli2019" class="csl-entry" role="listitem">
+Belligoli, Anna, Chiara Compagnin, Marta Sanna, Francesca Favaretto, Roberto Fabris, Luca Busetto, Mirto Foletto, et al. 2019. <span>“Characterization of Subcutaneous and Omental Adipose Tissue in Patients with Obesity and with Different Degrees of Glucose Impairment.”</span> <em>Scientific Reports</em> 9 (August): 11333. <a href="https://doi.org/10.1038/S41598-019-47719-Y">https://doi.org/10.1038/S41598-019-47719-Y</a>.
+</div>
+<div id="ref-Blondin2020" class="csl-entry" role="listitem">
+Blondin, Denis P., Soren Nielsen, Eline N. Kuipers, Mai C. Severinsen, Verena H. Jensen, Stéphanie Miard, Naja Z. Jespersen, et al. 2020. <span>“Human Brown Adipocyte Thermogenesis Is Driven by Β2-AR Stimulation.”</span> <em>Cell Metabolism</em> 32 (August): 287–300.e7. <a href="https://doi.org/10.1016/J.CMET.2020.07.005">https://doi.org/10.1016/J.CMET.2020.07.005</a>.
+</div>
+<div id="ref-Boomsma2000" class="csl-entry" role="listitem">
+Boomsma, F., P. J. De Kam, G. Tjeerdsma, A. H. Van Den Meiracker, and D. J. Van Veldhuisen. 2000. <span>“Plasma Semicarbazide-Sensitive Amine Oxidase (SSAO) Is an Independent Prognostic Marker for Mortality in Chronic Heart Failure.”</span> <em>European Heart Journal</em> 21: 1859–63. <a href="https://doi.org/10.1053/EUHJ.2000.2176">https://doi.org/10.1053/EUHJ.2000.2176</a>.
+</div>
+<div id="ref-Börgeson2022" class="csl-entry" role="listitem">
+Börgeson, Emma, Jeremie Boucher, and Carolina E. Hagberg. 2022. <span>“Of Mice and Men: Pinpointing Species Differences in Adipose Tissue Biology.”</span> <em>Frontiers in Cell and Developmental Biology</em> 10 (September): 1003118. <a href="https://doi.org/10.3389/FCELL.2022.1003118/BIBTEX">https://doi.org/10.3389/FCELL.2022.1003118/BIBTEX</a>.
+</div>
+<div id="ref-Bour2009" class="csl-entry" role="listitem">
+Bour, Sandy, Sylvie Caspar-Bauguil, Zsuzsa Iffiú-Soltész, Maryse Nibbelink, Béatrice Cousin, Mari Miiluniemi, Marko Salmi, et al. 2009. <span>“Semicarbazide-Sensitive Amine Oxidase/Vascular Adhesion Protein-1 Deficiency Reduces Leukocyte Infiltration into Adipose Tissue and Favors Fat Deposition.”</span> <em>The American Journal of Pathology</em> 174: 1075–83. <a href="https://doi.org/10.2353/AJPATH.2009.080612">https://doi.org/10.2353/AJPATH.2009.080612</a>.
+</div>
+<div id="ref-Carpéné2019" class="csl-entry" role="listitem">
+Carpéné, Christian, Nathalie Boulet, Alice Chaplin, and Josep Mercader. 2019. <span>“Past, Present and Future Anti-Obesity Effects of Flavin-Containing and/or Copper-Containing Amine Oxidase Inhibitors.”</span> <em>Medicines (Basel, Switzerland)</em> 6 (January): 9. <a href="https://doi.org/10.3390/MEDICINES6010009">https://doi.org/10.3390/MEDICINES6010009</a>.
+</div>
+<div id="ref-Chait2020" class="csl-entry" role="listitem">
+Chait, Alan, and Laura J. den Hartigh. 2020. <span>“Adipose Tissue Distribution, Inflammation and Its Metabolic Consequences, Including Diabetes and Cardiovascular Disease.”</span> <em>Frontiers in Cardiovascular Medicine</em> 7 (February). <a href="https://doi.org/10.3389/FCVM.2020.00022">https://doi.org/10.3389/FCVM.2020.00022</a>.
+</div>
+<div id="ref-Che2012" class="csl-entry" role="listitem">
+Che, Baoquan, Lin Wang, Zhe Zhang, Yongqian Zhang, and Yulin Deng. 2012. <span>“Distribution and Accumulation of Caffeine in Rat Tissues and Its Inhibition on Semicarbazide-Sensitive Amine Oxidase.”</span> <em>NeuroToxicology</em> 33 (October): 1248–53. <a href="https://doi.org/10.1016/J.NEURO.2012.07.004">https://doi.org/10.1016/J.NEURO.2012.07.004</a>.
+</div>
+<div id="ref-Chew2023" class="csl-entry" role="listitem">
+Chew, Nicholas W. S., Cheng Han Ng, Darren Jun Hao Tan, Gwyneth Kong, Chaoxing Lin, Yip Han Chin, Wen Hui Lim, et al. 2023. <span>“The Global Burden of Metabolic Disease: Data from 2000 to 2019.”</span> <em>Cell Metabolism</em> 35 (March): 414–428.e3. <a href="https://doi.org/10.1016/j.cmet.2023.02.003">https://doi.org/10.1016/j.cmet.2023.02.003</a>.
+</div>
+<div id="ref-Chusyd2016" class="csl-entry" role="listitem">
+Chusyd, Daniella E., Donghai Wang, Derek M. Huffman, and Tim R. Nagy. 2016. <span>“Relationships Between Rodent White Adipose Fat Pads and Human White Adipose Fat Depots.”</span> <em>Frontiers in Nutrition</em> 3 (April). <a href="https://doi.org/10.3389/FNUT.2016.00010">https://doi.org/10.3389/FNUT.2016.00010</a>.
+</div>
+<div id="ref-Danielli2022" class="csl-entry" role="listitem">
+Danielli, Marianna, Roisin Clare Thomas, Lauren Marie Quinn, and Bee Kang Tan. 2022. <span>“Vascular Adhesion Protein-1 (VAP-1) in Vascular Inflammatory Diseases: A Narrative Review.”</span> <em>Vasa - European Journal of Vascular Medicine</em> 51 (November): 341–50. <a href="https://doi.org/10.1024/0301-1526/a001031">https://doi.org/10.1024/0301-1526/a001031</a>.
+</div>
+<div id="ref-Hernandez-Guillamon2010" class="csl-entry" role="listitem">
+Hernandez-Guillamon, Mar, Lidia Garcia-Bonilla, Montse Solé, Victoria Sosti, Mireia Parés, Mireia Campos, Arantxa Ortega-Aznar, et al. 2010. <span>“Plasma VAP-1/SSAO Activity Predicts Intracranial Hemorrhages and Adverse Neurological Outcome After Tissue Plasminogen Activator Treatment in Stroke.”</span> <em>Stroke</em> 41: 1528–35. <a href="https://doi.org/10.1161/STROKEAHA.110.584623">https://doi.org/10.1161/STROKEAHA.110.584623</a>.
+</div>
+<div id="ref-Iglesias-Osma2005" class="csl-entry" role="listitem">
+Iglesias-Osma, Maria Carmen, Sandy Bour, Maria Jose Garcia-Barrado, Virgile Visentin, Maria Francisca Pastor, Xavier Testar, Luc Marti, et al. 2005. <span>“Methylamine but Not Mafenide Mimics Insulin-Like Activity of the Semicarbazide-Sensitive Amine Oxidase-Substrate Benzylamine on Glucose Tolerance and on Human Adipocyte Metabolism.”</span> <em>Pharmacological Research</em> 52 (December): 475–84. <a href="https://doi.org/10.1016/J.PHRS.2005.07.008">https://doi.org/10.1016/J.PHRS.2005.07.008</a>.
+</div>
+<div id="ref-Iglesias-Osma2004" class="csl-entry" role="listitem">
+Iglesias-Osma, María Carmen, Maria José Garcia-Barrado, Virgile Visentin, Maria Francisca Pastor-Mansilla, Sandy Bour, Daníelle Prévot, Philippe Valet, Julio Moratinos, and Christian Carpéné. 2004. <span>“Benzylamine Exhibits Insulin-Like Effects on Glucose Disposal, Glucose Transport, and Fat Cell Lipolysis in Rabbits and Diabetic Mice.”</span> <em>The Journal of Pharmacology and Experimental Therapeutics</em> 309 (June): 1020–28. <a href="https://doi.org/10.1124/JPET.103.063636">https://doi.org/10.1124/JPET.103.063636</a>.
+</div>
+<div id="ref-Jarnicki2016" class="csl-entry" role="listitem">
+Jarnicki, A. G., H. Schilter, G. Liu, K. Wheeldon, A. T. Essilfie, J. S. Foot, T. T. Yow, W. Jarolimek, and Philip M. Hansbro. 2016. <span>“The Inhibitor of Semicarbazide-Sensitive Amine Oxidase, PXS-4728A, Ameliorates Key Features of Chronic Obstructive Pulmonary Disease in a Mouse Model.”</span> <em>British Journal of Pharmacology</em> 173: 3161–75. <a href="https://doi.org/10.1111/bph.13573">https://doi.org/10.1111/bph.13573</a>.
+</div>
+<div id="ref-Kurkijarvi2000" class="csl-entry" role="listitem">
+Kurkijarvi, Riikka, Gennady G. Yegutkin, Bridget K. Gunson, Sirpa Jalkanen, Marko Salmi, and David H. Adams. 2000. <span>“Circulating Soluble Vascular Adhesion Protein 1 Accounts for the Increased Serum Monoamine Oxidase Activity Chronic Liver Disease.”</span> <em>Gastroenterology</em> 119: 1096–1103. <a href="https://doi.org/10.1053/gast.2000.18163">https://doi.org/10.1053/gast.2000.18163</a>.
+</div>
+<div id="ref-Li2021" class="csl-entry" role="listitem">
+Li, Hui, Shiyu Du, Panpan Niu, Xiaosong Gu, Jun Wang, and Ying Zhao. 2021. <span>“Vascular Adhesion Protein-1 (VAP-1)/Semicarbazide-Sensitive Amine Oxidase (SSAO): A Potential Therapeutic Target for Atherosclerotic Cardiovascular Diseases.”</span> <em>Frontiers in Pharmacology</em> 12 (July). <a href="https://doi.org/10.3389/FPHAR.2021.679707">https://doi.org/10.3389/FPHAR.2021.679707</a>.
+</div>
+<div id="ref-Lyles1995" class="csl-entry" role="listitem">
+Lyles, G. A. 1995. <span>“Substrate-Specificity of Mammalian Tissue-Bound Semicarbazide-Sensitive Amine Oxidase.”</span> <em>Progress in Brain Research</em> 106: 293–303. <a href="https://doi.org/10.1016/s0079-6123(08)61226-1">https://doi.org/10.1016/s0079-6123(08)61226-1</a>.
+</div>
+<div id="ref-Ma2011" class="csl-entry" role="listitem">
+Ma, Qingyi, Anatol Manaenko, Nikan H. Khatibi, Wanqiu Chen, John H. Zhang, and Jiping Tang. 2011. <span>“Vascular Adhesion Protein-1 Inhibition Provides Antiinflammatory Protection After an Intracerebral Hemorrhagic Stroke in Mice.”</span> <em>Journal of Cerebral Blood Flow and Metabolism : Official Journal of the International Society of Cerebral Blood Flow and Metabolism</em> 31: 881–93. <a href="https://doi.org/10.1038/JCBFM.2010.167">https://doi.org/10.1038/JCBFM.2010.167</a>.
+</div>
+<div id="ref-Manasieva2023" class="csl-entry" role="listitem">
+Manasieva, Vesna, Shori Thakur, Lisa A. Lione, Anwar R. Baydoun, and John Skamarauskas. 2023. <span>“The Impact of Semicarbazide Sensitive Amine Oxidase Activity on Rat Aortic Vascular Smooth Muscle Cells.”</span> <em>International Journal of Molecular Sciences 2023, Vol. 24, Page 4946</em> 24 (March): 4946. <a href="https://doi.org/10.3390/IJMS24054946">https://doi.org/10.3390/IJMS24054946</a>.
+</div>
+<div id="ref-Manasieva2022" class="csl-entry" role="listitem">
+Manasieva, Vesna, Shori Thakur, Lisa A. Lione, Jessal Patel, Anwar Baydoun, and John Skamarauskas. 2022. <span>“Semicarbazide-Sensitive Amine Oxidase (SSAO) and Lysyl Oxidase (LOX) Association in Rat Aortic Vascular Smooth Muscle Cells.”</span> <em>Biomolecules</em> 12 (November). <a href="https://doi.org/10.3390/BIOM12111563">https://doi.org/10.3390/BIOM12111563</a>.
+</div>
+<div id="ref-Marin2019" class="csl-entry" role="listitem">
+Marin, R. Diaz, S. Crespo-Garcia, Ariel Molly Wilson, and P. Sapieha. 2019. <span>“RELi Protocol: Optimization for Protein Extraction from White, Brown and Beige Adipose Tissues.”</span> <em>MethodsX</em> 6 (January): 918–28. <a href="https://doi.org/10.1016/J.MEX.2019.04.010">https://doi.org/10.1016/J.MEX.2019.04.010</a>.
+</div>
+<div id="ref-Mercader2011" class="csl-entry" role="listitem">
+Mercader, Josep, Zsuzsa Iffiú-Soltész, Sandy Bour, and Christian Carpéné. 2011. <span>“Oral Administration of Semicarbazide Limits Weight Gain Together with Inhibition of Fat Deposition and of Primary Amine Oxidase Activity in Adipose Tissue.”</span> <em>Journal of Obesity</em> 2011 (January): 475786. <a href="https://doi.org/10.1155/2011/475786">https://doi.org/10.1155/2011/475786</a>.
+</div>
+<div id="ref-Murata2017" class="csl-entry" role="listitem">
+Murata, Miyuki, Kousuke Noda, Akiko Kawasaki, Shiho Yoshida, Yoko Dong, Michiyuki Saito, Zhenyu Dong, et al. 2017. <span>“Soluble Vascular Adhesion Protein-1 Mediates Spermine Oxidation as Semicarbazide-Sensitive Amine Oxidase: Possible Role in Proliferative Diabetic Retinopathy.”</span> <em>Current Eye Research</em> 42 (December): 1674–83. <a href="https://doi.org/10.1080/02713683.2017.1359847">https://doi.org/10.1080/02713683.2017.1359847</a>.
+</div>
+<div id="ref-Obata2006" class="csl-entry" role="listitem">
+Obata, Toshio. 2006. <span>“Diabetes and Semicarbazide-Sensitive Amine Oxidase (SSAO) Activity: A Review.”</span> <em>Life Sciences</em> 79 (June): 417–22. <a href="https://doi.org/10.1016/j.lfs.2006.01.017">https://doi.org/10.1016/j.lfs.2006.01.017</a>.
+</div>
+<div id="ref-Pannecoeck2015" class="csl-entry" role="listitem">
+Pannecoeck, Roos, Daphne Serruys, Lara Benmeridja, Joris R. Delanghe, Nanja Van Geel, Reinhart Speeckaert, and Marijn M. Speeckaert. 2015. <span>“Vascular Adhesion Protein-1: Role in Human Pathology and Application as a Biomarker.”</span> <em>Critical Reviews in Clinical Laboratory Sciences</em> 52: 284–300. <a href="https://doi.org/10.3109/10408363.2015.1050714">https://doi.org/10.3109/10408363.2015.1050714</a>.
+</div>
+<div id="ref-Papukashvili2020" class="csl-entry" role="listitem">
+Papukashvili, Dimitri, Nino Rcheulishvili, and Yulin Deng. 2020. <span>“Attenuation of Weight Gain and Prevention of Associated Pathologies by Inhibiting SSAO.”</span> <em>Nutrients</em> 12. <a href="https://doi.org/10.3390/NU12010184">https://doi.org/10.3390/NU12010184</a>.
+</div>
+<div id="ref-Peng2016" class="csl-entry" role="listitem">
+Peng, Ya, Jun Wang, Miao Zhang, Panpan Niu, Mengya Yang, Yilin Yang, and Ying Zhao. 2016. <span>“Inactivation of Semicarbazide-Sensitive Amine Oxidase Stabilizes the Established Atherosclerotic Lesions via Inducing the Phenotypic Switch of Smooth Muscle Cells.”</span> <em>PloS One</em> 11 (April). <a href="https://doi.org/10.1371/JOURNAL.PONE.0152758">https://doi.org/10.1371/JOURNAL.PONE.0152758</a>.
+</div>
+<div id="ref-Reddy2024" class="csl-entry" role="listitem">
+Reddy, Vundrala Sumedha, S. Shiva, Srinidhi Manikantan, and Seeram Ramakrishna. 2024. <span>“Pharmacology of Caffeine and Its Effects on the Human Body.”</span> <em>European Journal of Medicinal Chemistry Reports</em> 10 (April): 100138. <a href="https://doi.org/10.1016/J.EJMCR.2024.100138">https://doi.org/10.1016/J.EJMCR.2024.100138</a>.
+</div>
+<div id="ref-Salmi1992" class="csl-entry" role="listitem">
+Salmi, Marko, and Sirpa Jalkanen. 1992. <span>“A 90-Kilodalton Endothelial Cell Molecule Mediating Lymphocyte Binding in Humans.”</span> <em>Science (New York, N.Y.)</em> 257 (September): 1407–9. <a href="https://doi.org/10.1126/SCIENCE.1529341">https://doi.org/10.1126/SCIENCE.1529341</a>.
+</div>
+<div id="ref-Salmi2019" class="csl-entry" role="listitem">
+———. 2019. <span>“Vascular Adhesion Protein-1: A Cell Surface Amine Oxidase in Translation.”</span> <em>Antioxidants &amp; Redox Signaling</em> 30 (January): 314. <a href="https://doi.org/10.1089/ARS.2017.7418">https://doi.org/10.1089/ARS.2017.7418</a>.
+</div>
+<div id="ref-Salmi2000" class="csl-entry" role="listitem">
+Salmi, Marko, Sami Tohka, and Sirpa Jalkanen. 2000. <span>“Human Vascular Adhesion Protein-1 (VAP-1) Plays a Critical Role in Lymphocyte-Endothelial Cell Adhesion Cascade Under Shear.”</span> <em>Circulation Research</em> 86 (June): 1245–51. <a href="https://doi.org/10.1161/01.RES.86.12.1245">https://doi.org/10.1161/01.RES.86.12.1245</a>.
+</div>
+<div id="ref-Schilter2015" class="csl-entry" role="listitem">
+Schilter, Heidi C., Adam Collison, Remo C. Russo, Jonathan S. Foot, Tin T. Yow, Angelica T. Vieira, Livia D. Tavares, Joerg Mattes, Mauro M. Teixeira, and Wolfgang Jarolimek. 2015. <span>“Effects of an Anti-Inflammatory VAP-1/SSAO Inhibitor, PXS-4728A, on Pulmonary Neutrophil Migration.”</span> <em>Respiratory Research</em> 16 (March). <a href="https://doi.org/10.1186/S12931-015-0200-Z">https://doi.org/10.1186/S12931-015-0200-Z</a>.
+</div>
+<div id="ref-Silvola2016" class="csl-entry" role="listitem">
+Silvola, Johanna M. U., Helena Virtanen, Riikka Siitonen, Sanna Hellberg, Heidi Liljenbäck, Olli Metsälä, Mia Ståhle, et al. 2016. <span>“Leukocyte Trafficking-Associated Vascular Adhesion Protein 1 Is Expressed and Functionally Active in Atherosclerotic Plaques.”</span> <em>Scientific Reports</em> 6 (October). <a href="https://doi.org/10.1038/SREP35089">https://doi.org/10.1038/SREP35089</a>.
+</div>
+<div id="ref-Sun2018" class="csl-entry" role="listitem">
+Sun, Ping, Mar Hernandez-Guillamón, Mireia Campos-Martorell, Alba Simats, Joan Montaner, Mercedes Unzeta, and Montse Solé. 2018. <span>“Simvastatin Blocks Soluble SSAO/VAP-1 Release in Experimental Models of Cerebral Ischemia: Possible Benefits for Stroke-Induced Inflammation Control.”</span> <em>Biochimica Et Biophysica Acta. Molecular Basis of Disease</em> 1864 (February): 542–53. <a href="https://doi.org/10.1016/J.BBADIS.2017.11.014">https://doi.org/10.1016/J.BBADIS.2017.11.014</a>.
+</div>
+<div id="ref-Tábi2013" class="csl-entry" role="listitem">
+Tábi, Tamás, Éva Szöko, Anita Mérey, Veronika Tóth, Péter Mátyus, and Klára Gyires. 2013. <span>“Study on SSAO Enzyme Activity and Anti-Inflammatory Effect of SSAO Inhibitors in Animal Model of Inflammation.”</span> <em>Journal of Neural Transmission (Vienna, Austria : 1996)</em> 120 (June): 963–67. <a href="https://doi.org/10.1007/S00702-012-0961-1">https://doi.org/10.1007/S00702-012-0961-1</a>.
+</div>
+<div id="ref-Toiyama2009" class="csl-entry" role="listitem">
+Toiyama, Yuji, Chikao Miki, Yasuhiro Inoue, Aya Kawamoto, and Masato Kusunoki. 2009. <span>“Circulating Form of Human Vascular Adhesion Protein-1 (VAP-1): Decreased Serum Levels in Progression of Colorectal Cancer and Predictive Marker of Lymphatic and Hepatic Metastasis.”</span> <em>Journal of Surgical Oncology</em> 99 (May): 368–72. <a href="https://doi.org/10.1002/jso.21246">https://doi.org/10.1002/jso.21246</a>.
+</div>
+<div id="ref-Unzeta2021" class="csl-entry" role="listitem">
+Unzeta, Mercedes, Mar Hernàndez-Guillamon, Ping Sun, and Montse Solé. 2021. <span>“SSAO/VAP-1 in Cerebrovascular Disorders: A Potential Therapeutic Target for Stroke and Alzheimer’s Disease.”</span> <em>International Journal of Molecular Sciences 2021, Vol. 22, Page 3365</em> 22 (March): 3365. <a href="https://doi.org/10.3390/IJMS22073365">https://doi.org/10.3390/IJMS22073365</a>.
+</div>
+<div id="ref-Wang2018" class="csl-entry" role="listitem">
+Wang, Shu Huei, Tse Ya Yu, Feng Chiao Tsai, Chris J. Weston, Mao Shin Lin, Chi Sheng Hung, Hsien Li Kao, et al. 2018. <span>“Inhibition of Semicarbazide-Sensitive Amine Oxidase Reduces Atherosclerosis in Apolipoprotein e-Deficient Mice.”</span> <em>Translational Research</em> 197 (July): 12–31. <a href="https://doi.org/10.1016/j.trsl.2018.03.001">https://doi.org/10.1016/j.trsl.2018.03.001</a>.
+</div>
+<div id="ref-Xu2014" class="csl-entry" role="listitem">
+Xu, Hao Liang, Maggie Garcia, Fernando Testai, Francesco Vetri, Alexandra Barabanova, Dale A. Pelligrino, and Chanannait Paisansathan. 2014. <span>“Pharmacologic Blockade of Vascular Adhesion Protein-1 Lessens Neurologic Dysfunction in Rats Subjected to Subarachnoid Hemorrhage.”</span> <em>Brain Research</em> 1586 (October): 83–89. <a href="https://doi.org/10.1016/J.BRAINRES.2014.08.036">https://doi.org/10.1016/J.BRAINRES.2014.08.036</a>.
+</div>
+<div id="ref-Yan2023" class="csl-entry" role="listitem">
+Yan, Liben, Chunli Sun, Yaxi Zhang, Peng Zhang, Yu Chen, Yifan Deng, Tianyi Er, Yulin Deng, Zhimin Wang, and Hong Ma. 2023. <span>“The Biological Implication of Semicarbazide-Sensitive Amine Oxidase (SSAO) Upregulation in Rat Systemic Inflammatory Response Under Simulated Aerospace Environment.”</span> <em>International Journal of Molecular Sciences</em> 24 (February): 3666. <a href="https://doi.org/10.3390/IJMS24043666/S1">https://doi.org/10.3390/IJMS24043666/S1</a>.
+</div>
+<div id="ref-Yang2011" class="csl-entry" role="listitem">
+Yang, Wei, Hui Li, Hongjun Luo, and Wenhong Luo. 2011. <span>“Inhibition of Semicarbazide-Sensitive Amine Oxidase Attenuates Myocardial Ischemia-Reperfusion Injury in an in Vivo Rat Model.”</span> <em>Life Sciences</em> 88 (February): 302–6. <a href="https://doi.org/10.1016/J.LFS.2010.12.003">https://doi.org/10.1016/J.LFS.2010.12.003</a>.
+</div>
+<div id="ref-Yasuda2011" class="csl-entry" role="listitem">
+Yasuda, Hiromi, Yuji Toiyama, Masaki Ohi, Yasuhiko Mohri, Chikao Miki, and Masato Kusunoki. 2011. <span>“Serum Soluble Vascular Adhesion Protein-1 Is a Valuable Prognostic Marker in Gastric Cancer.”</span> <em>Journal of Surgical Oncology</em> 103 (June): 695–99. <a href="https://doi.org/10.1002/jso.21877">https://doi.org/10.1002/jso.21877</a>.
+</div>
+<div id="ref-Yu1998" class="csl-entry" role="listitem">
+Yu, P. H., and Y. L. Deng. 1998. <span>“Endogenous Formaldehyde as a Potential Factor of Vulnerability of Atherosclerosis: Involvement of Semicarbazide-Sensitive Amine Oxidase-Mediated Methylamine Turnover.”</span> <em>Atherosclerosis</em> 140 (October): 357–63. <a href="https://doi.org/10.1016/S0021-9150(98)00142-7">https://doi.org/10.1016/S0021-9150(98)00142-7</a>.
+</div>
+<div id="ref-Yu2004" class="csl-entry" role="listitem">
+Yu, Peter H., Michael Wang, Hui Fan, Yulin Deng, and Diana Gubisne-Haberle. 2004. <span>“Involvement of SSAO-Mediated Deamination in Adipose Glucose Transport and Weight Gain in Obese Diabetic KKAy Mice.”</span> <em>American Journal of Physiology - Endocrinology and Metabolism</em> 286 (April). <a href="https://doi.org/10.1152/AJPENDO.00272.2003">https://doi.org/10.1152/AJPENDO.00272.2003</a>.
+</div>
+<div id="ref-Yu2002" class="csl-entry" role="listitem">
+Yu, P., M. Wang, Y. Deng, H. Fan, and L. Shira-Bock. 2002. <span>“Involvement of Semicarbazide-Sensitive Amine Oxidase-Mediated Deamination in Atherogenesis in KKAy Diabetic Mice Fed with High Cholesterol Diet.”</span> <em>Diabetologia</em> 45: 1255–62. <a href="https://doi.org/10.1007/S00125-002-0903-9">https://doi.org/10.1007/S00125-002-0903-9</a>.
+</div>
+<div id="ref-Zhang2016" class="csl-entry" role="listitem">
+Zhang, Miao, Limin Liu, Feng Zhi, Panpan Niu, Mengya Yang, Xuemei Zhu, Ying Diao, Yanmei Li, Jun Wang, and Ying Zhao. 2016. <span>“Inactivation of Semicarbazide-Sensitive Amine Oxidase Induces the Phenotypic Switch of Smooth Muscle Cells and Aggravates the Development of Atherosclerotic Lesions.”</span> <em>Atherosclerosis</em> 249 (June): 76–82. <a href="https://doi.org/10.1016/J.ATHEROSCLEROSIS.2016.03.039">https://doi.org/10.1016/J.ATHEROSCLEROSIS.2016.03.039</a>.
+</div>
+<div id="ref-Zorzano2003" class="csl-entry" role="listitem">
+Zorzano, Antonio, Anna Abella, Luc Marti, Christian Carpéné, Manuel Palacín, and Xavier Testar. 2003. <span>“Semicarbazide-Sensitive Amine Oxidase Activity Exerts Insulin-Like Effects on Glucose Metabolism and Insulin-Signaling Pathways in Adipose Cells.”</span> <em>Biochimica Et Biophysica Acta - Proteins and Proteomics</em> 1647 (April): 3–9. <a href="https://doi.org/10.1016/S1570-9639(03)00039-6">https://doi.org/10.1016/S1570-9639(03)00039-6</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/prasaath\.quarto\.pub\/msc-research-project\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Preface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./aims_and_objective.html" class="pagination-link" aria-label="Aim and Objectives">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aim and Objectives</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Research project by Prasaath Sastha Kuppan Ravi</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
