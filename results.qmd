@@ -35,7 +35,7 @@ defat_results<- tibble(
   mutate(
     percentage_fat_lost = 100*(Frozen_weight_g - Defatted_dried_weight_g)/Frozen_weight_g
     )
-kable(defat_results)
+kable(defat_results, align = "c")
 ```
 
 ## **Method C**
@@ -114,7 +114,7 @@ ggplot(mean_data, aes(x = Method, y = Mean, fill = Assay)) +
 #| warning: false
 #| code-overflow: wrap
 #| label: tbl-ssaoactivity
-#| tbl-cap: SSAO activity corrected to protein concentration from respective BCA results for Method A (One independent experiment), and Method B and Method C (3 independent experiments
+#| tbl-cap: SSAO activity corrected to protein concentration from respective BCA results for Method A (One independent experiment), and Method B and Method C (3 independent experiments)
 #| tbl-cap-location: bottom
 library(tidyverse)
 library(knitr)
@@ -133,7 +133,7 @@ means_row <- tibble(
 )
 
 ssao_activity_with_means <- bind_rows(ssao_activity, means_row)
-kable(ssao_activity_with_means)
+kable(ssao_activity_with_means, align = "c")
 ```
 
 ```{r}
@@ -180,7 +180,6 @@ $$ {#eq-mm}
 #| code-overflow: wrap
 #| label: fig - ssao_activity_control
 #| fig-cap: SSAO activity measured over 10 minutes using benzylamine as substrate
-#| fig-width: 5
 #| fig-align: center
 
 library(broom)

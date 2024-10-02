@@ -165,8 +165,6 @@
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
-\usepackage{makeidx}
-\makeindex
 \KOMAoption{captions}{tableheading}
 \makeatletter
 \@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
@@ -221,7 +219,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
-  pdftitle={MSc Project},
+  pdftitle={Research Project on SSAO Extraction and Enzyme Kinetics},
   pdfauthor={Prasaath Sastha Kuppan Ravi},
   colorlinks=true,
   linkcolor={blue},
@@ -231,7 +229,7 @@
   pdfcreator={LaTeX via pandoc}}
 
 
-\title{MSc Project}
+\title{Research Project on SSAO Extraction and Enzyme Kinetics}
 \author{Prasaath Sastha Kuppan Ravi}
 \date{}
 
@@ -247,9 +245,31 @@
 
 \bookmarksetup{startatroot}
 
-\chapter{Abstract}\label{abstract}
+\chapter*{Preface}\label{preface}
+\addcontentsline{toc}{chapter}{Preface}
 
-\textbf{Abstract}
+\markboth{Preface}{Preface}
+
+\textbf{Overview}
+
+This is a research project carried out at the University of
+Hertfordshire in compliance with its regulations under the supervision
+of Dr.~John Skamarauskas. The project was submitted in partial
+fulfillment of my Master's in Drug Discovery and Toxicology. The
+original submission was prepared in Microsoft word, and the data
+analysis was carried performed using Graphpad prism.
+
+This version of the project published as a quarto book is purely an
+exploratory effort by me. Same data from original research was used, and
+R was used to generate plots, models and tables. The results obtained
+from the R code was compared with the original results from Graphpad
+which were identical. I decided to do this to improve my working
+understanding of R and Quarto Markdown.
+
+\section*{\texorpdfstring{\textbf{Abstract}}{Abstract}}\label{abstract}
+\addcontentsline{toc}{section}{\textbf{Abstract}}
+
+\markright{\textbf{Abstract}}
 
 Rat brown adipose tissue (BAT) is recognized as a rich source of semi
 carbazide-sensitive amine oxidase (SSAO), yet no standardized methods
@@ -274,7 +294,10 @@ SSAO activity remains quantifiable post-extraction. However, further
 studies with improved experimental controls are recommended to refine
 the inhibitory kinetics of caffeine and simvastatin on SSAO.
 
-\textbf{Abbreviations}
+\section*{\texorpdfstring{\textbf{Abbreviations}}{Abbreviations}}\label{abbreviations}
+\addcontentsline{toc}{section}{\textbf{Abbreviations}}
+
+\markright{\textbf{Abbreviations}}
 
 \begin{longtable}[]{@{}l@{}}
 \toprule\noalign{}
@@ -2999,8 +3022,6 @@ Biophysica Acta - Proteins and Proteomics} 1647 (April): 3--9.
 \end{CSLReferences}
 
 
-
-\printindex
 
 
 \end{document}

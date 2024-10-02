@@ -1,15 +1,19 @@
 project:
   type: book
+  output-dir: _book
 
 
 book:
   title: "Research Project on SSAO Extraction and Enzyme Kinetics"
   author: "Prasaath Sastha Kuppan Ravi"
+  reader-mode: true
   cover-image: cover.png
   page-footer: 
     left: Research project by Prasaath Sastha Kuppan Ravi
     right: This book was built with <a href="https://quarto.org/">Quarto</a>.         
-  favicon: cover.jpg
+  favicon: logo.png
+  site-url: "https://prasaath.quarto.pub/msc-research-project/"
+  repo-url: https://github.com/PSArchitect0/MSc-Project/
   chapters:
     - index.qmd
     - intro.qmd
@@ -27,7 +31,11 @@ format:
   html:
     css: styles.css
     theme: cosmo
-  pdf: default
+    
+    
+website:
+  open-graph: true
+  site-url: "https://prasaath.quarto.pub/msc-research-project/"
   
 author-meta: "Prasaath Sastha Kuppan Ravi"
 callout-appearance: simple

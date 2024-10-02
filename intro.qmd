@@ -53,7 +53,7 @@ Studying the effects of caffeine and simvastatin on SSAO activity paves directio
 Some of the most widely studied compounds with an inhibitory effect on SSAO are small molecules that include hydrazines, benzylamides, vitamin B1 derivatives, oxime based primary amine oxidase inhibitors and peptides [@Manasieva2022; @Pannecoeck2015].
 
 | Name of SSAO/VAP-1 Inhibitors | Off Target | Model | Species | Major effects | References |
-|------------|------------|------------|------------|------------|------------|
+|----|----|----|----|----|----|
 | **Allyl-amines** |  |  |  |  |  |
 | LJP-1586 | MAO-A/B | ICH, SAH, Atherosclerotic plaque | CD1 mice, Sprague-Dawley rats, LDLr-/- ApoB100/100 mice | Improved neurological scores. Improved neurological outcomes. | [@Ma2011; @Silvola2016; @Xu2014] |
 | MDL-72974A | MAO-B | Atherosclerosis, Obesity | KKAy mice | Reduction of weight gain and atherosclerotic lesions. Reduction of weight gain | [@Yu2002; @Yu2004] |
