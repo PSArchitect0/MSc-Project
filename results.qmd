@@ -422,7 +422,7 @@ comp_inhib <- function(S, I, Vmax, Km, Ki) {
   (Vmax * S) / (Km_obs + S)
 }
 
-# Set initial parameter values (using GraphPad's results)
+# Set initial parameter values 
 start_vals <- list(Vmax = 0.1, Km = 0.1, Ki = 0.1)
 
 # Fit the model using nlsLM for more robust fitting
@@ -436,7 +436,6 @@ sim_fit <- nlsLM(V ~ comp_inhib(S, I, Vmax, Km, Ki),
 sim_params <- coef(sim_fit)
 sim_summary_fit <- summary(sim_fit)
 
-
 # Calculate R-squared
 ss_total <- sum((data$V - mean(data$V))^2)
 ss_residual <- sum(residuals(sim_fit)^2)
@@ -447,8 +446,6 @@ Km <- sprintf("%.5f", sim_params["Km"]),
 Vmax <- sprintf("%.5f", sim_params["Vmax"]),
 Ki <- sprintf("%.5f", sim_params["Ki"]),
 r_squaredv <- sprintf("%.5f", r_squared))
-
-
 
 # MM Plot
 ggplot(data, aes(x = S, y = V, color = factor(I))) +
