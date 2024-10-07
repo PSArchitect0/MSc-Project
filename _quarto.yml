@@ -9,7 +9,7 @@ book:
   reader-mode: true
   cover-image: cover.png
   page-footer: 
-    left: Research project by Prasaath Sastha Kuppan Ravi
+    left: Research project by <a href=https://prasaath-sastha.github.io/>Prasaath Sastha Kuppan Ravi</a>
     right: This book was built with <a href="https://quarto.org/">Quarto</a>.         
   favicon: logo.png
   site-url: "https://prasaath.quarto.pub/msc-research-project/"

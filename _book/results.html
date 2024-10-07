@@ -698,7 +698,7 @@ Figure&nbsp;4.2: Comparison SSAO activity corrected to protein concentration fro
 <span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>           <span class="st">'Substrate concentration'</span> <span class="ot">=</span> <span class="st">"S"</span>))</span>
 <span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">tibble</span>(table_ssao_control_iniV), <span class="at">format =</span> <span class="st">"html"</span>, <span class="at">align =</span> <span class="st">"c"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="tbl-iniV" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[60,40]" data-tbl-cap-location="bottom">
+<div id="tbl-iniV" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-cap-location="bottom" data-tbl-colwidths="[60,40]">
 <figure class="quarto-float quarto-float-tbl figure">
 <div aria-describedby="tbl-iniV-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -968,7 +968,7 @@ Table&nbsp;4.5: Initial velocities of SSAO activity in the presence of simvastat
 <span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  (Vmax <span class="sc">*</span> S) <span class="sc">/</span> (Km_obs <span class="sc">+</span> S)</span>
 <span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Set initial parameter values (using GraphPad's results)</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Set initial parameter values </span></span>
 <span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>start_vals <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Vmax =</span> <span class="fl">0.1</span>, <span class="at">Km =</span> <span class="fl">0.1</span>, <span class="at">Ki =</span> <span class="fl">0.1</span>)</span>
 <span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the model using nlsLM for more robust fitting</span></span>
@@ -982,43 +982,40 @@ Table&nbsp;4.5: Initial velocities of SSAO activity in the presence of simvastat
 <span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>sim_params <span class="ot">&lt;-</span> <span class="fu">coef</span>(sim_fit)</span>
 <span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>sim_summary_fit <span class="ot">&lt;-</span> <span class="fu">summary</span>(sim_fit)</span>
 <span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate R-squared</span></span>
-<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>ss_total <span class="ot">&lt;-</span> <span class="fu">sum</span>((data<span class="sc">$</span>V <span class="sc">-</span> <span class="fu">mean</span>(data<span class="sc">$</span>V))<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>ss_residual <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">residuals</span>(sim_fit)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>r_squared <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> (ss_residual <span class="sc">/</span> ss_total)</span>
-<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>sim_nlm_values <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>Km <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"%.5f"</span>, sim_params[<span class="st">"Km"</span>]),</span>
-<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>Vmax <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"%.5f"</span>, sim_params[<span class="st">"Vmax"</span>]),</span>
-<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>Ki <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"%.5f"</span>, sim_params[<span class="st">"Ki"</span>]),</span>
-<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>r_squaredv <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"%.5f"</span>, r_squared))</span>
-<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a><span class="co"># MM Plot</span></span>
-<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> S, <span class="at">y =</span> V, <span class="at">color =</span> <span class="fu">factor</span>(I))) <span class="sc">+</span></span>
-<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">S =</span> <span class="fu">rep</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="fu">max</span>(data<span class="sc">$</span>S), <span class="at">length.out =</span> <span class="dv">100</span>), <span class="dv">4</span>),</span>
-<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>                              <span class="at">I =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.1</span>, <span class="dv">1</span>, <span class="dv">10</span>), <span class="at">each =</span> <span class="dv">100</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>              <span class="fu">mutate</span>(<span class="at">V =</span> <span class="fu">comp_inhib</span>(S, I, sim_params[<span class="st">"Vmax"</span>], </span>
-<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>                                    sim_params[<span class="st">"Km"</span>], </span>
-<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a>                                    sim_params[<span class="st">"Ki"</span>])),</span>
-<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> S, <span class="at">y =</span> V, <span class="at">color =</span> <span class="fu">factor</span>(I))) <span class="sc">+</span></span>
-<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Competitive Inhibition of SSAO by simvastatin"</span>,</span>
-<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Substrate Concentration (mM)"</span>,</span>
-<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Initial Velocity </span><span class="sc">\n</span><span class="st">(µmol H2O2/min/mg protein)"</span>,</span>
-<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Simvastatin Concentration (mM)"</span>) <span class="sc">+</span></span>
-<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic2</span>() <span class="sc">+</span></span>
-<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>)<span class="sc">+</span></span>
-<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, </span>
-<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="fl">0.75</span>, <span class="at">y =</span> <span class="fl">0.01</span>,</span>
-<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">sprintf</span>(<span class="st">"Vmax = %.4f</span><span class="sc">\n</span><span class="st">Km = %.4f</span><span class="sc">\n</span><span class="st"> Ki = %.4f"</span>, </span>
-<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a>                           sim_params[<span class="st">"Vmax"</span>], </span>
-<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a>                           sim_params[<span class="st">"Km"</span>], </span>
-<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a>                           sim_params[<span class="st">"Ki"</span>]))<span class="sc">+</span></span>
-<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)<span class="sc">+</span></span>
-<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_legend</span>(<span class="at">nrow =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate R-squared</span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>ss_total <span class="ot">&lt;-</span> <span class="fu">sum</span>((data<span class="sc">$</span>V <span class="sc">-</span> <span class="fu">mean</span>(data<span class="sc">$</span>V))<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>ss_residual <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">residuals</span>(sim_fit)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>r_squared <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> (ss_residual <span class="sc">/</span> ss_total)</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>sim_nlm_values <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>Km <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"%.5f"</span>, sim_params[<span class="st">"Km"</span>]),</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>Vmax <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"%.5f"</span>, sim_params[<span class="st">"Vmax"</span>]),</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>Ki <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"%.5f"</span>, sim_params[<span class="st">"Ki"</span>]),</span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>r_squaredv <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"%.5f"</span>, r_squared))</span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a><span class="co"># MM Plot</span></span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> S, <span class="at">y =</span> V, <span class="at">color =</span> <span class="fu">factor</span>(I))) <span class="sc">+</span></span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">S =</span> <span class="fu">rep</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="fu">max</span>(data<span class="sc">$</span>S), <span class="at">length.out =</span> <span class="dv">100</span>), <span class="dv">4</span>),</span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>                              <span class="at">I =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.1</span>, <span class="dv">1</span>, <span class="dv">10</span>), <span class="at">each =</span> <span class="dv">100</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a>              <span class="fu">mutate</span>(<span class="at">V =</span> <span class="fu">comp_inhib</span>(S, I, sim_params[<span class="st">"Vmax"</span>], </span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a>                                    sim_params[<span class="st">"Km"</span>], </span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>                                    sim_params[<span class="st">"Ki"</span>])),</span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> S, <span class="at">y =</span> V, <span class="at">color =</span> <span class="fu">factor</span>(I))) <span class="sc">+</span></span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Competitive Inhibition of SSAO by simvastatin"</span>,</span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Substrate Concentration (mM)"</span>,</span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Initial Velocity </span><span class="sc">\n</span><span class="st">(µmol H2O2/min/mg protein)"</span>,</span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Simvastatin Concentration (mM)"</span>) <span class="sc">+</span></span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic2</span>() <span class="sc">+</span></span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>)<span class="sc">+</span></span>
+<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, </span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="fl">0.75</span>, <span class="at">y =</span> <span class="fl">0.01</span>,</span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">sprintf</span>(<span class="st">"Vmax = %.4f</span><span class="sc">\n</span><span class="st">Km = %.4f</span><span class="sc">\n</span><span class="st"> Ki = %.4f"</span>, </span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a>                           sim_params[<span class="st">"Vmax"</span>], </span>
+<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a>                           sim_params[<span class="st">"Km"</span>], </span>
+<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a>                           sim_params[<span class="st">"Ki"</span>]))<span class="sc">+</span></span>
+<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)<span class="sc">+</span></span>
+<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_legend</span>(<span class="at">nrow =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-SIM-CI" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
