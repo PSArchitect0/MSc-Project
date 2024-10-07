@@ -52,7 +52,7 @@ Upon obtaining absorbances of undiluted stock samples that do not fit inside the
 Known concentrations of Bovine Serum Albumin (BSA) is used to prepare a standard curve which was used to interpolate absorbances obtained from unknown samples (Noble & Bailey, 2009). 10 mg of BSA was weighed and dissolved in 10ml of deionised water to prepare a 1mg/ml stock BSA standard. The 1mg/ml stock was used to prepare further dilutions as per table 1.
 
 | BSA Stock Volume | Deionised water volume (ml) | Final concentration (mg/ml) |
-|:----------------:|:-------------------------:|:-------------------------:|
+|:----------------:|:---------------------------:|:---------------------------:|
 |       0.8        |             0.2             |             0.8             |
 |       0.6        |             0.4             |             0.6             |
 |       0.4        |             0.6             |             0.4             |
@@ -167,7 +167,7 @@ Amplex^®^ red is a colourless, non-fluorescent compound that converts into reso
 The stock solutions were used to prepare a reaction mixture containing 400µM Amplex^®^ red, 2U/ml HRP, and appropriate substrate concentration. For example, 2000 µl of the reaction mixture was prepared by combining 40µl Amplex^®^ red stock(20mM), 20µl HRP stock(200U/ml), 1900µl sodium phosphate buffer (pH 7.4) (1X reaction buffer), and 40µl of benzylamine solution of the desired concentration (@tbl-substrate-solution-prep) . A reaction mixture without substrate was prepared by replacing the substrate with same volume of 1X reaction buffer. For measuring the inhibitory activity of caffeine and simvastatin on SSAO, 10µL of each inhibitor at 0 .1, 1, and 10mM concentration were added to the samples and incubated for 15 minutes prior to adding the reaction mixture containing the substrates triggering the enzyme reaction.
 
 | Benzylamine Dilution | Stock volume | dH2O - Diluent Volume | Final concentration |
-|------------------|:----------------:|:----------------:|:----------------:|
+|----|:--:|:--:|:--:|
 | Dilution 1 | 20µl of 100mM Benz | 1980µl | 1 mM |
 | Dilution 2 | 1000µl of Dilution 1 | 1000µl | 0.5 mM |
 | Dilution 3 | 1000µl of Dilution 2 | 1000µl | 0.25 mM |
